@@ -13,6 +13,7 @@ namespace ResortManager
 {
     public partial class frmHome : Form
     {
+        frmLogin frm_login = new frmLogin();
         public frmHome()
         {
             InitializeComponent();
@@ -67,6 +68,16 @@ namespace ResortManager
             frmTraPhong s = new frmTraPhong();
             TestTab("Trả phòng", s);
 
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            DialogResult result = frm_login.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //MaNVHienHanh = frmLogin.MaNVHienHanh;
+                //afterLogin();
+            }
         }
     }
 }
