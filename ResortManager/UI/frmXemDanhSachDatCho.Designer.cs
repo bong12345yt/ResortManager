@@ -50,15 +50,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(-3, 29);
+            this.lblTitle.Location = new System.Drawing.Point(-2, 24);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1007, 108);
+            this.lblTitle.Size = new System.Drawing.Size(755, 88);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "XEM DANH SÁCH ĐẶT CHỖ";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dgvLst
             // 
+            this.dgvLst.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLst.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -81,13 +86,14 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLst.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvLst.Location = new System.Drawing.Point(0, 150);
+            this.dgvLst.Location = new System.Drawing.Point(5, 122);
+            this.dgvLst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvLst.Name = "dgvLst";
             this.dgvLst.ReadOnly = true;
             this.dgvLst.RowHeadersVisible = false;
             this.dgvLst.RowTemplate.Height = 24;
             this.dgvLst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLst.Size = new System.Drawing.Size(1005, 159);
+            this.dgvLst.Size = new System.Drawing.Size(741, 129);
             this.dgvLst.TabIndex = 12;
             // 
             // STT
@@ -95,7 +101,6 @@
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
             this.STT.ReadOnly = true;
-            this.STT.Width = 50;
             // 
             // MaDoan
             // 
@@ -152,16 +157,16 @@
             this.HuyDangKy.ReadOnly = true;
             this.HuyDangKy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.HuyDangKy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.HuyDangKy.Width = 150;
             // 
             // frmXemDanhSachDatCho
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvLst);
             this.Controls.Add(this.lblTitle);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmXemDanhSachDatCho";
-            this.Size = new System.Drawing.Size(1007, 517);
+            this.Size = new System.Drawing.Size(755, 420);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).EndInit();
             this.ResumeLayout(false);
 
