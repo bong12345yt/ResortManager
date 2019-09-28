@@ -55,7 +55,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="UI\frmBoiThuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,12 +73,8 @@
     <Compile Include="UI\frmTraPhong.Designer.cs">
       <DependentUpon>frmTraPhong.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-=======
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
->>>>>>> 47db8d29f41c8837d13ef26865027b9cefb5626f
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
