@@ -154,11 +154,11 @@
             this.tbc_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbc_Main.Location = new System.Drawing.Point(175, 15);
+            this.tbc_Main.Location = new System.Drawing.Point(178, 15);
             this.tbc_Main.Margin = new System.Windows.Forms.Padding(4);
             this.tbc_Main.Name = "tbc_Main";
             this.tbc_Main.SelectedIndex = 0;
-            this.tbc_Main.Size = new System.Drawing.Size(1074, 512);
+            this.tbc_Main.Size = new System.Drawing.Size(1030, 512);
             this.tbc_Main.TabIndex = 1;
             // 
             // frmHome
