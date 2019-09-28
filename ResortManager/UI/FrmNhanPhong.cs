@@ -16,5 +16,10 @@ namespace ResortManager.UI
         {
             InitializeComponent();
         }
+
+        private void FrmNhanPhong_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

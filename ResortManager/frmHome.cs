@@ -61,5 +61,17 @@ namespace ResortManager
         {
             TestTab("Xem DS", new frmXemDanhSachDatCho());
         }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_CheckOut_Click(object sender, EventArgs e)
+        {
+            frmTraPhong s = new frmTraPhong();
+            TestTab("Trả phòng", s);
+
+        }
     }
 }

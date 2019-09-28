@@ -101,6 +101,7 @@
             this.btn_CheckOut.TabIndex = 3;
             this.btn_CheckOut.Text = "Trả Phòng";
             this.btn_CheckOut.UseVisualStyleBackColor = true;
+            this.btn_CheckOut.Click += new System.EventHandler(this.btn_CheckOut_Click);
             // 
             // btn_Order
             // 
@@ -167,6 +168,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmHome";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmHome_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
