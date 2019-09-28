@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResortManager.UI;
 
 namespace ResortManager
 {
@@ -56,5 +57,9 @@ namespace ResortManager
         }
         #endregion
 
+        private void btn_ViewList_Click(object sender, EventArgs e)
+        {
+            TestTab("Xem DS", new frmXemDanhSachDatCho());
+        }
     }
 }
