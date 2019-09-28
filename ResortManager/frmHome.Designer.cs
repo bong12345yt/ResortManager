@@ -123,6 +123,7 @@
             this.btn_ViewList.TabIndex = 1;
             this.btn_ViewList.Text = "Xem DS";
             this.btn_ViewList.UseVisualStyleBackColor = true;
+            this.btn_ViewList.Click += new System.EventHandler(this.btn_ViewList_Click);
             // 
             // btn_login
             // 

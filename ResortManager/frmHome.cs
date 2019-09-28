@@ -58,6 +58,11 @@ namespace ResortManager
         }
         #endregion
 
+        private void btn_ViewList_Click(object sender, EventArgs e)
+        {
+            TestTab("Xem DS", new frmXemDanhSachDatCho());
+        }
+
         private void frmHome_Load(object sender, EventArgs e)
         {
 
