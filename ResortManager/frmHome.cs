@@ -68,5 +68,10 @@ namespace ResortManager
             TestTab("Trả phòng", s);
 
         }
+
+        private void btn_CheckIn_Click(object sender, EventArgs e)
+        {
+            TestTab("Nhận phòng", new FrmNhanPhong());
+        }
     }
 }

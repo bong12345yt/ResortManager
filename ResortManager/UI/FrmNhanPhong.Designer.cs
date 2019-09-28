@@ -75,7 +75,7 @@
             this.dgvLst.RowHeadersVisible = false;
             this.dgvLst.RowTemplate.Height = 24;
             this.dgvLst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLst.Size = new System.Drawing.Size(777, 150);
+            this.dgvLst.Size = new System.Drawing.Size(861, 150);
             this.dgvLst.TabIndex = 11;
             // 
             // Column1
@@ -191,11 +191,11 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label4.BackColor = System.Drawing.SystemColors.Control;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Location = new System.Drawing.Point(3, -3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1044, 63);
+            this.label4.Size = new System.Drawing.Size(1044, 94);
             this.label4.TabIndex = 16;
             this.label4.Text = "NHẬN PHÒNG";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
