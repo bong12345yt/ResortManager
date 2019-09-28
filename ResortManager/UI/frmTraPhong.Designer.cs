@@ -74,6 +74,7 @@
             this.dgvLst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLst.Size = new System.Drawing.Size(1120, 150);
             this.dgvLst.TabIndex = 7;
+            this.dgvLst.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLst_CellClick);
             // 
             // Column1
             // 

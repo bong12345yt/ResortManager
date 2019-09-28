@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResortManager.UI;
 
 namespace ResortManager
 {
@@ -56,5 +57,16 @@ namespace ResortManager
         }
         #endregion
 
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_CheckOut_Click(object sender, EventArgs e)
+        {
+            frmTraPhong s = new frmTraPhong();
+            TestTab("Trả phòng", s);
+
+        }
     }
 }
