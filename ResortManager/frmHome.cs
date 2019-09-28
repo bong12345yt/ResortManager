@@ -13,6 +13,7 @@ namespace ResortManager
 {
     public partial class frmHome : Form
     {
+        frmLogin frm_login = new frmLogin();
         public frmHome()
         {
             InitializeComponent();
@@ -22,17 +23,17 @@ namespace ResortManager
         public void TestTab(string nameTab, UserControl frm)
         {
 
-            int t = 0;
+            int t = -1;
 
             foreach (TabPage tab in tbc_Main.TabPages)
             {
                 if (tab.Text == nameTab)
                 {
                     tbc_Main.SelectedTab = tab;
-                    t = 1;
+                    t++;
                 }
             }
-            if (t == 1)//tab có thì chuyển đến tab
+            if (t >= 0)//tab có thì chuyển đến tab
             {
 
             }
@@ -40,7 +41,7 @@ namespace ResortManager
             {
                 
                 AddTabControl.TabAdd.AddTab(tbc_Main, nameTab, frm);
-
+                tbc_Main.SelectedIndex = t;
             }
         }
 
@@ -57,6 +58,11 @@ namespace ResortManager
         }
         #endregion
 
+        private void btn_ViewList_Click(object sender, EventArgs e)
+        {
+            TestTab("Xem DS", new frmXemDanhSachDatCho());
+        }
+
         private void frmHome_Load(object sender, EventArgs e)
         {
 
@@ -72,6 +78,15 @@ namespace ResortManager
         private void btn_CheckIn_Click(object sender, EventArgs e)
         {
             TestTab("Nhận phòng", new FrmNhanPhong());
+        }
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            DialogResult result = frm_login.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //MaNVHienHanh = frmLogin.MaNVHienHanh;
+                //afterLogin();
+            }
         }
     }
 }
