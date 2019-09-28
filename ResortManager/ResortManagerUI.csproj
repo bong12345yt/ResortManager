@@ -76,6 +76,12 @@
     <Compile Include="UI\FrmNhanPhong.Designer.cs">
       <DependentUpon>FrmNhanPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmTraPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmNhanPhong.resx">
       <DependentUpon>FrmNhanPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmRegister.resx">
+      <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmTraPhong.resx">
       <DependentUpon>frmTraPhong.cs</DependentUpon>

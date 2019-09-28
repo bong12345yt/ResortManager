@@ -73,6 +73,7 @@
             this.btn_Register.TabIndex = 5;
             this.btn_Register.Text = "Đăng Kí TK";
             this.btn_Register.UseVisualStyleBackColor = true;
+            this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
             // btn_CheckIn
             // 
