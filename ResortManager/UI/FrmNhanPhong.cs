@@ -24,7 +24,6 @@ namespace ResortManager.UI
             cmb.Items.Add("False");
             dgvLst.Rows.Add(new String[5] { "1", "Trần văn A", "10101010", "200000", "0"});
             dgvLst.Rows.Add(new String[5] { "1", "Trần văn A", "22222222222", "200000", "0"});
-            dgvLst.Columns.Add(cmb);
         }
     }
 }
