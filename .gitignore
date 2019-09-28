@@ -7,3 +7,6 @@ ResortManagerDTO/bin/
 ResortManagerBUS/obj
 ResortManagerDAO/obj
 ResortManagerDTO/obj
+ResortManagerBUS/obj/
+ResortManagerDAO/obj/
+ResortManagerDTO/obj/
