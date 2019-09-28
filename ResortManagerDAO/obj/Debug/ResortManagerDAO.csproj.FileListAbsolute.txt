@@ -1,0 +1,7 @@
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDAO\bin\Debug\ResortManagerDAO.dll
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDAO\bin\Debug\ResortManagerDAO.pdb
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDAO\bin\Debug\ResortManagerDTO.dll
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDAO\bin\Debug\ResortManagerDTO.pdb
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDAO\obj\Debug\ResortManagerDAO.csprojResolveAssemblyReference.cache
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDAO\obj\Debug\ResortManagerDAO.dll
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDAO\obj\Debug\ResortManagerDAO.pdb

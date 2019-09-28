@@ -1,2 +1,14 @@
 D:\MyDocument\ToanRR\ResortManager\ResortManager\bin\Debug\ResortManager.exe.config
 C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\bin\Debug\ResortManager.exe.config
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\obj\Debug\ResortManagerUI.csprojResolveAssemblyReference.cache
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\obj\Debug\ResortManager.frmHome.resources
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\obj\Debug\ResortManager.Properties.Resources.resources
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\obj\Debug\ResortManagerUI.csproj.GenerateResource.Cache
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\bin\Debug\ResortManager.exe
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\bin\Debug\ResortManager.pdb
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\bin\Debug\ResortManagerBUS.dll
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\bin\Debug\ResortManagerDTO.dll
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\bin\Debug\ResortManagerBUS.pdb
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\bin\Debug\ResortManagerDTO.pdb
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\obj\Debug\ResortManager.exe
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManager\obj\Debug\ResortManager.pdb

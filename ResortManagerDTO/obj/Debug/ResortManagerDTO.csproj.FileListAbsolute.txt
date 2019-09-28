@@ -1,0 +1,4 @@
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDTO\bin\Debug\ResortManagerDTO.dll
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDTO\bin\Debug\ResortManagerDTO.pdb
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDTO\obj\Debug\ResortManagerDTO.dll
+C:\Users\AnhQuynh\Desktop\ResortManager\ResortManagerDTO\obj\Debug\ResortManagerDTO.pdb
