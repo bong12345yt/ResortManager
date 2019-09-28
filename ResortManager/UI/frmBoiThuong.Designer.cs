@@ -39,9 +39,12 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(180, 302);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(76, 33);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
