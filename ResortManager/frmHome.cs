@@ -93,5 +93,10 @@ namespace ResortManager
         {
             TestTab("Đăng kí", new frmRegister());
         }
+
+        private void btn_Order_Click(object sender, EventArgs e)
+        {
+            TestTab("Đặt chỗ", new frmDatCho());
+        }
     }
 }

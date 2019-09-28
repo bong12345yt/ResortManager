@@ -51,11 +51,11 @@
             this.groupBox1.Controls.Add(this.btn_login);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.groupBox1.Location = new System.Drawing.Point(7, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(9, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(148, 513);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Size = new System.Drawing.Size(197, 631);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
@@ -66,10 +66,10 @@
             this.btn_Register.FlatAppearance.BorderSize = 0;
             this.btn_Register.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_Register.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Register.Location = new System.Drawing.Point(8, 362);
-            this.btn_Register.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Register.Location = new System.Drawing.Point(11, 446);
+            this.btn_Register.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_Register.Name = "btn_Register";
-            this.btn_Register.Size = new System.Drawing.Size(98, 23);
+            this.btn_Register.Size = new System.Drawing.Size(131, 28);
             this.btn_Register.TabIndex = 5;
             this.btn_Register.Text = "Đăng Kí TK";
             this.btn_Register.UseVisualStyleBackColor = true;
@@ -81,10 +81,10 @@
             this.btn_CheckIn.FlatAppearance.BorderSize = 0;
             this.btn_CheckIn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_CheckIn.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CheckIn.Location = new System.Drawing.Point(8, 297);
-            this.btn_CheckIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_CheckIn.Location = new System.Drawing.Point(11, 366);
+            this.btn_CheckIn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_CheckIn.Name = "btn_CheckIn";
-            this.btn_CheckIn.Size = new System.Drawing.Size(98, 23);
+            this.btn_CheckIn.Size = new System.Drawing.Size(131, 28);
             this.btn_CheckIn.TabIndex = 4;
             this.btn_CheckIn.Text = "Nhận Phòng";
             this.btn_CheckIn.UseVisualStyleBackColor = true;
@@ -96,10 +96,10 @@
             this.btn_CheckOut.FlatAppearance.BorderSize = 0;
             this.btn_CheckOut.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_CheckOut.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CheckOut.Location = new System.Drawing.Point(9, 229);
-            this.btn_CheckOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_CheckOut.Location = new System.Drawing.Point(12, 282);
+            this.btn_CheckOut.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_CheckOut.Name = "btn_CheckOut";
-            this.btn_CheckOut.Size = new System.Drawing.Size(98, 23);
+            this.btn_CheckOut.Size = new System.Drawing.Size(131, 28);
             this.btn_CheckOut.TabIndex = 3;
             this.btn_CheckOut.Text = "Trả Phòng";
             this.btn_CheckOut.UseVisualStyleBackColor = true;
@@ -111,13 +111,14 @@
             this.btn_Order.FlatAppearance.BorderSize = 0;
             this.btn_Order.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_Order.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Order.Location = new System.Drawing.Point(8, 165);
-            this.btn_Order.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Order.Location = new System.Drawing.Point(11, 203);
+            this.btn_Order.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_Order.Name = "btn_Order";
-            this.btn_Order.Size = new System.Drawing.Size(98, 23);
+            this.btn_Order.Size = new System.Drawing.Size(131, 28);
             this.btn_Order.TabIndex = 2;
             this.btn_Order.Text = "Đặt Chỗ";
             this.btn_Order.UseVisualStyleBackColor = true;
+            this.btn_Order.Click += new System.EventHandler(this.btn_Order_Click);
             // 
             // btn_ViewList
             // 
@@ -125,10 +126,10 @@
             this.btn_ViewList.FlatAppearance.BorderSize = 0;
             this.btn_ViewList.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_ViewList.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ViewList.Location = new System.Drawing.Point(8, 97);
-            this.btn_ViewList.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_ViewList.Location = new System.Drawing.Point(11, 119);
+            this.btn_ViewList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_ViewList.Name = "btn_ViewList";
-            this.btn_ViewList.Size = new System.Drawing.Size(98, 23);
+            this.btn_ViewList.Size = new System.Drawing.Size(131, 28);
             this.btn_ViewList.TabIndex = 1;
             this.btn_ViewList.Text = "Xem DS";
             this.btn_ViewList.UseVisualStyleBackColor = true;
@@ -140,10 +141,10 @@
             this.btn_login.FlatAppearance.BorderSize = 0;
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_login.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Location = new System.Drawing.Point(9, 42);
-            this.btn_login.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_login.Location = new System.Drawing.Point(12, 52);
+            this.btn_login.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(98, 23);
+            this.btn_login.Size = new System.Drawing.Size(131, 28);
             this.btn_login.TabIndex = 0;
             this.btn_login.Text = "Đăng Nhập";
             this.btn_login.UseVisualStyleBackColor = true;
@@ -154,21 +155,21 @@
             this.tbc_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbc_Main.Location = new System.Drawing.Point(178, 15);
-            this.tbc_Main.Margin = new System.Windows.Forms.Padding(4);
+            this.tbc_Main.Location = new System.Drawing.Point(237, 18);
+            this.tbc_Main.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tbc_Main.Name = "tbc_Main";
             this.tbc_Main.SelectedIndex = 0;
-            this.tbc_Main.Size = new System.Drawing.Size(1030, 512);
+            this.tbc_Main.Size = new System.Drawing.Size(1373, 630);
             this.tbc_Main.TabIndex = 1;
             // 
             // frmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 528);
+            this.ClientSize = new System.Drawing.Size(1611, 650);
             this.Controls.Add(this.tbc_Main);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "frmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
