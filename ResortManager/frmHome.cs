@@ -30,7 +30,7 @@ namespace ResortManager
                 if (tab.Text == nameTab)
                 {
                     tbc_Main.SelectedTab = tab;
-                    t++;
+                    t = 1;
                 }
             }
             if (t >= 0)//tab có thì chuyển đến tab
@@ -41,7 +41,7 @@ namespace ResortManager
             {
                 
                 AddTabControl.TabAdd.AddTab(tbc_Main, nameTab, frm);
-                tbc_Main.SelectedIndex = t;
+                tbc_Main.SelectedIndex = tbc_Main.TabCount - 1;
             }
         }
 
@@ -87,6 +87,11 @@ namespace ResortManager
                 //MaNVHienHanh = frmLogin.MaNVHienHanh;
                 //afterLogin();
             }
+        }
+
+        private void btn_Register_Click(object sender, EventArgs e)
+        {
+            TestTab("Đăng kí", new frmRegister());
         }
     }
 }
