@@ -11,7 +11,7 @@ namespace DAO.DAOClasses
 {
     class Provider
     {
-        static String ConnectionString = @"Data Source=DESKTOP-9RH7EPH;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        static String ConnectionString = @"Data Source=./SQLEXPRESS;Initial Catalog=ResortManager;Integrated Security=True";
 
         SqlConnection Connection { get; set; }
 
