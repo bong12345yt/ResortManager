@@ -40,8 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Compile Include="DTO\LOAIPHONG.cs" />
+    <Compile Include="DTO\PHONG.cs" />
+=======
     <Compile Include="DTO\DbAck.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
+>>>>>>> 574f91123bada9b51a909a92182aa88c6b98dfc7
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -94,11 +94,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 151);
+            this.label1.Location = new System.Drawing.Point(191, 153);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 9;
-            this.label1.Text = "CMND";
+            this.label1.Text = "Mã diao dịch";
             // 
             // textBox1
             // 
@@ -159,7 +159,7 @@
             this.Column1.HeaderText = "STT";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 102;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
