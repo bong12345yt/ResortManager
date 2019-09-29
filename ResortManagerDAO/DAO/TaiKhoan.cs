@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +21,18 @@ namespace ResortManagerDAO.DAO
             }
             DataTable dt = new DataTable();
             dt = provider.Select(CommandType.StoredProcedure, "SelectLoginUser", out ack, null);
-            List<DTO.DTOClasses.LoginUser> lstUser = new List<DTO.DTOClasses.LoginUser>();
+            List<ResortManagerDTO.DTO.TaiKhoan> lstUser = new List<ResortManagerDTO.DTO.TaiKhoan>;
             if (dt == null)
             {
                 return null;
             }
             foreach (DataRow row in dt.Rows)
             {
-                DTO.DTOClasses.LoginUser user = new DTO.DTOClasses.LoginUser
+                ResortManagerDTO.DTO.TaiKhoan user = new ResortManagerDTO.DTO.TaiKhoan
                 {
-                    username = row["username"].ToString(),
-                    password = row["pass"].ToString()
+                    TenTaiKhoan = row["TENTAIKHOAN"].ToString(),
+                    MatKhau = row["MATKHAU"].ToString(),
+                    MaDoan = row["MADOAN"].ToString()
                 };
 
                 lstUser.Add(user);
