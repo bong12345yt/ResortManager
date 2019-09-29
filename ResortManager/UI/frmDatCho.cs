@@ -19,8 +19,14 @@ namespace ResortManager.UI
 
         private void frmDatCho_Load(object sender, EventArgs e)
         {
-            cmbCatRoom.Items.Add("1");
-            cmbCatRoom.Items.Add("2");
+            ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+            List<String> lstCatRoon = new List<String>();
+            lstCatRoon = ResortManagerBUS.BUS.LoaiPhong.SelectLeverRoom(out ack);
+
+            foreach(String itemCatRoom in lstCatRoon)
+            {
+                cmbLever.Items.Add(itemCatRoom);
+            }
         }
     }
 }

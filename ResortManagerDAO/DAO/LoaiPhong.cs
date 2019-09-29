@@ -9,34 +9,27 @@ namespace ResortManagerDAO.DAO
 {
     public class LoaiPhong
     {
-        public static List<ResortManagerDTO.DTO.LoaiPhong> SelectCatRoon(out DTO.DTOClasses.DbAck ack)
+        public static List<String> SelectCatRoom(out ResortManagerDTO.DTO.DbAck ack)
         {
             Provider provider = new Provider();
             ack = provider.Connect();
-            if (ack == DTO.DTOClasses.DbAck.NetworkError)
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
             {
                 return null;
             }
             DataTable dt = new DataTable();
-            dt = provider.Select(CommandType.StoredProcedure, "SelectLoginUser", out ack, null);
-            List<ResortManagerDTO.DTO.LoaiPhong> lstUser = new List<ResortManagerDTO.DTO.LoaiPhong>();
+            dt = provider.Select(CommandType.StoredProcedure, "usp_LayDanhSachHangPhong", out ack, null);
+            List<String> lstLeverRoom = new List<String>();
             if (dt == null)
             {
                 return null;
             }
-            //foreach (DataRow row in dt.Rows)
-            //{
-            //    ResortManagerDTO.DTO.LoaiPhong user = new ResortManagerDTO.DTO.LoaiPhong
-            //    {
-            //        TenLoaiPhong = row["TENLoaiPhong"].ToString(),
-            //        MatKhau = row["MATKHAU"].ToString(),
-            //        MaDoan = row["MADOAN"].ToString()
-            //    };
-
-            //    lstUser.Add(user);
-            //}
+            foreach (DataRow row in dt.Rows)
+            {
+                lstLeverRoom.Add(row["HANG"].ToString());
+            }
             provider.Disconnect();
-            return lstUser;
+            return lstLeverRoom;
         }
     }
 }
