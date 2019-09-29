@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-using System.Linq;
+using System.Linq; 
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +11,7 @@ namespace ResortManagerDAO.DAO
 {
     class Provider
     {
-        static String ConnectionString = @"Data Source=./SQLEXPRESS;Initial Catalog=ResortManager;Integrated Security=True";
+        static String ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=ResortManager;Integrated Security=True";
 
         SqlConnection Connection { get; set; }
 

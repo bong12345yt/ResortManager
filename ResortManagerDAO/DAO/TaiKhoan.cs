@@ -9,7 +9,7 @@ using ResortManagerDTO;
 
 namespace ResortManagerDAO.DAO
 {
-    class TaiKhoan
+    public class TaiKhoan
     {
         public static List<ResortManagerDTO.DTO.TaiKhoan> SelectLoginUser(out DTO.DTOClasses.DbAck ack)
         {
