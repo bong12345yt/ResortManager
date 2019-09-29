@@ -17,6 +17,7 @@ namespace ResortManager
         public frmHome()
         {
             InitializeComponent();
+            BeforeLogin();
         }
 
         #region"Kiểm tra tab mở"
@@ -58,6 +59,24 @@ namespace ResortManager
         }
         #endregion
 
+        private void BeforeLogin()
+        {
+            btn_CheckIn.Enabled = false;
+            btn_CheckOut.Enabled = false;
+            btn_Order.Enabled = false;
+            btn_Register.Enabled = false;
+            btn_ViewList.Enabled = false;
+        }
+
+        private void AfterLogin()
+        {
+            btn_CheckIn.Enabled = true;
+            btn_CheckOut.Enabled = true;
+            btn_Order.Enabled = true;
+            btn_Register.Enabled = true;
+            btn_ViewList.Enabled = true;
+        }
+
         private void btn_ViewList_Click(object sender, EventArgs e)
         {
             TestTab("Xem DS", new frmXemDanhSachDatCho());
@@ -86,6 +105,7 @@ namespace ResortManager
             {
                 //MaNVHienHanh = frmLogin.MaNVHienHanh;
                 //afterLogin();
+                AfterLogin();
             }
         }
 

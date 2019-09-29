@@ -49,6 +49,7 @@
             this.chk_show.TabIndex = 25;
             this.chk_show.Text = "Show password";
             this.chk_show.UseVisualStyleBackColor = true;
+            this.chk_show.CheckedChanged += new System.EventHandler(this.chk_show_CheckedChanged);
             // 
             // btn_Cancel
             // 
@@ -61,6 +62,7 @@
             this.btn_Cancel.TabIndex = 24;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // btn_Log
             // 
@@ -72,6 +74,7 @@
             this.btn_Log.TabIndex = 23;
             this.btn_Log.Text = "Login";
             this.btn_Log.UseVisualStyleBackColor = true;
+            this.btn_Log.Click += new System.EventHandler(this.btn_Log_Click);
             // 
             // txt_pass
             // 

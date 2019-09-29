@@ -16,5 +16,11 @@ namespace ResortManager.UI
         {
             InitializeComponent();
         }
+
+        private void frmDatCho_Load(object sender, EventArgs e)
+        {
+            cmbCatRoom.Items.Add("1");
+            cmbCatRoom.Items.Add("2");
+        }
     }
 }
