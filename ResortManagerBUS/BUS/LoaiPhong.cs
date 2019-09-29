@@ -17,5 +17,9 @@ namespace ResortManagerBUS.BUS
         {
             return ResortManagerDAO.DAO.LoaiPhong.SelectTypeRoom(out ack);
         }
+        public static String GetPriceByValidate(out ResortManagerDTO.DTO.DbAck ack, String lavel, String type)
+        {
+            return ResortManagerDAO.DAO.LoaiPhong.GetPriceByValidate(out ack, lavel, type);
+        }
     }
 }
