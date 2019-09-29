@@ -118,7 +118,7 @@
             // 
             this.dtp_DateStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_DateStart.Location = new System.Drawing.Point(705, 127);
-            this.dtp_DateStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_DateStart.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateStart.Name = "dtp_DateStart";
             this.dtp_DateStart.Size = new System.Drawing.Size(265, 22);
             this.dtp_DateStart.TabIndex = 27;
@@ -127,7 +127,7 @@
             // 
             this.dtp_DateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_DateEnd.Location = new System.Drawing.Point(705, 185);
-            this.dtp_DateEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_DateEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateEnd.Name = "dtp_DateEnd";
             this.dtp_DateEnd.Size = new System.Drawing.Size(265, 22);
             this.dtp_DateEnd.TabIndex = 28;
@@ -135,18 +135,19 @@
             // btn_Add
             // 
             this.btn_Add.Location = new System.Drawing.Point(67, 533);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(100, 28);
             this.btn_Add.TabIndex = 29;
             this.btn_Add.Text = "Thêm";
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Register
             // 
             this.btn_Register.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Register.Location = new System.Drawing.Point(877, 533);
-            this.btn_Register.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Register.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(100, 28);
             this.btn_Register.TabIndex = 30;
@@ -230,7 +231,7 @@
             this.Controls.Add(this.txt_Name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRegister";
             this.Size = new System.Drawing.Size(1051, 582);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).EndInit();

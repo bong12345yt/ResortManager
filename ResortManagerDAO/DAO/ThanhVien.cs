@@ -25,7 +25,7 @@ namespace ResortManagerDAO.DAO
                        new SqlParameter("@HoTen", tv.HoTen),
                        new SqlParameter("@MaDoan", tv.MaDoan)
              };
-            result = provider.ExcuteNonQuery(CommandType.StoredProcedure, "ThemThanhVien", para);
+            result = provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_ThemThanhVien", para);
             provider.Disconnect();
             //lable network
             Network:
