@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResortManagerDTO.DTO
 {
-    class LoaiPhong
+    public class LoaiPhong
     {
         public String MALOAI { get; set; }//lã loại
         public String HINHTHUC { get; set; }// hình thức(1 người)

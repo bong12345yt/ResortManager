@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Compile Include="BUS\LoaiPhong.cs" />
+=======
     <Compile Include="BUS\TaiKhoan.cs" />
+>>>>>>> 09fceffd63d0a52373cc119a3ef70f1268d140b9
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
