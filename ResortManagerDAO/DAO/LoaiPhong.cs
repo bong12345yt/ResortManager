@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,29 @@ namespace ResortManagerDAO.DAO
             }
             provider.Disconnect();
             return lstTypeRoom;
+        }
+        public static String GetPriceByValidate(out ResortManagerDTO.DTO.DbAck ack, String lavel, String type)
+        {
+            Provider provider = new Provider();
+            ack = provider.Connect();
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                return null;
+            }
+            DataTable dt = new DataTable();
+            SqlParameter[] para = new SqlParameter[]
+                {
+                       new SqlParameter("@hang", lavel),
+                       new SqlParameter("@hinhthuc", type)
+                };
+            dt = provider.Select(CommandType.StoredProcedure, "usp_LayGiaPhong", out ack, para);
+            List<String> lstTypeRoom = new List<String>();
+            if (dt == null)
+            {
+                return null;
+            }
+            provider.Disconnect();
+            return dt.Rows[0]["GIA"].ToString();
         }
     }
 }
