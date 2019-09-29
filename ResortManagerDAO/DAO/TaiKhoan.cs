@@ -21,7 +21,7 @@ namespace ResortManagerDAO.DAO
             }
             DataTable dt = new DataTable();
             dt = provider.Select(CommandType.StoredProcedure, "SelectLoginUser", out ack, null);
-            List<ResortManagerDTO.DTO.TaiKhoan> lstUser = new List<ResortManagerDTO.DTO.TaiKhoan>;
+            List<ResortManagerDTO.DTO.TaiKhoan> lstUser = new List<ResortManagerDTO.DTO.TaiKhoan>();
             if (dt == null)
             {
                 return null;
