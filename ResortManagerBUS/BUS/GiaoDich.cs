@@ -12,5 +12,15 @@ namespace ResortManagerBUS.BUS
         {
             return ResortManagerDAO.DAO.GiaoDich.TaoMaDoan(out id);
         }
+
+        public static ResortManagerDTO.DTO.DbAck ThemGiaoDich(ResortManagerDTO.DTO.GiaoDich gd)
+        {
+            return ResortManagerDAO.DAO.GiaoDich.ThemGiaoDich(gd);
+        }
+
+        public static ResortManagerDTO.DTO.DbAck XoaGiaoDich(String MaDoan)
+        {
+            return ResortManagerDAO.DAO.GiaoDich.XoaGiaoDich(MaDoan);
+        }
     }
 }
