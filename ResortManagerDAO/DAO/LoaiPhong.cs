@@ -9,11 +9,11 @@ namespace ResortManagerDAO.DAO
 {
     public class LoaiPhong
     {
-        public static List<ResortManagerDTO.DTO.LoaiPhong> SelectCatRoon(out DTO.DTOClasses.DbAck ack)
+        public static List<ResortManagerDTO.DTO.LoaiPhong> SelectCatRoon(out ResortManagerDTO.DTO.DbAck ack)
         {
             Provider provider = new Provider();
             ack = provider.Connect();
-            if (ack == DTO.DTOClasses.DbAck.NetworkError)
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
             {
                 return null;
             }

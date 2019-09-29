@@ -8,7 +8,7 @@ namespace ResortManagerBUS.BUS
 {
     class LoaiPhong
     {
-        public static List<ResortManagerDTO.DTO.LoaiPhong> SelectAuthor(out DTO.DTOClasses.DbAck ack)
+        public static List<ResortManagerDTO.DTO.LoaiPhong> SelectAuthor(out ResortManagerDTO.DTO.DbAck ack)
         {
             return ResortManagerDAO.DAO.LoaiPhong.SelectCatRoon(out ack);
         }

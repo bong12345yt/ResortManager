@@ -12,7 +12,7 @@ namespace ResortManager.UI
 {
     public partial class frmLogin : Form
     {
-        public string ActiveAcount;
+        static public string ActiveAcount;
         public frmLogin()
         {
             InitializeComponent();
