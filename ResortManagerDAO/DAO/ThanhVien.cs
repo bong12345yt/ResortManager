@@ -32,5 +32,25 @@ namespace ResortManagerDAO.DAO
             return result;
         }
 
+        public static ResortManagerDTO.DTO.DbAck XoaThanhVienTheoMaDoan(String MaDoan)
+        {
+
+            Provider provider = new Provider();
+            ResortManagerDTO.DTO.DbAck result = provider.Connect();
+            if (result == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                goto Network; // net nhu la networkerror thi nhay den lable network
+            }
+            SqlParameter[] para = new SqlParameter[]
+            {
+                       new SqlParameter("@MaDoan",MaDoan)
+             };
+            result = provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_XoaThanhVienTheoMaDoan", para);
+            provider.Disconnect();
+        //lable network
+        Network:
+            return result;
+        }
+
     }
 }

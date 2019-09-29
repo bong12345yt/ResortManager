@@ -40,3 +40,64 @@ GO
 Declare @MaDoan nchar(30)
 exec usp_PhatSinhMaDoan @MaDoan out
 print @MaDoan
+
+if OBJECT_ID ('usp_ThemGiaoDich','p') is not null
+	drop proc usp_ThemGiaoDich
+go
+create proc usp_ThemGiaoDich
+@MaDoan nchar(30),
+@SoNguoi int,
+@SoPhong int,
+@NgayBatDau datetime,
+@NgayKetThuc datetime,
+@TongTien int,
+@CMND nchar(50),
+@TrangThai nvarchar(50)
+as
+	begin tran
+	insert into GIAODICH
+	values(@MaDoan,@SoNguoi,@SoPhong,@NgayBatDau,@NgayKetThuc,@TongTien,@CMND,@TrangThai)
+	if(@@ERROR <> 0)
+	begin
+		Select N'Thêm giao dịch lỗi'
+		rollback tran
+		return
+	end
+	commit tran
+go
+
+if OBJECT_ID ('usp_XoaThanhVienTheoMaDoan','p') is not null
+	drop proc usp_XoaThanhVienTheoMaDoan
+go
+create proc usp_XoaThanhVienTheoMaDoan
+@MaDoan nchar(30)
+as
+	begin tran
+	delete THANHVIEN
+	where MADOAN = @MaDoan
+	if(@@ERROR <> 0)
+	begin
+		Select N'Xóa thành viên theo mã đoàn lỗi'
+		rollback tran
+		return
+	end
+	commit tran
+go
+
+if OBJECT_ID ('usp_XoaGiaoDich','p') is not null
+	drop proc usp_XoaGiaoDich
+go
+create proc usp_XoaGiaoDich
+@MaDoan nchar(30)
+as
+	begin tran
+	delete GIAODICH
+	where MADOAN = @MaDoan
+	if(@@ERROR <> 0)
+	begin
+		Select N'Xóa giao dịch lỗi'
+		rollback tran
+		return
+	end
+	commit tran
+go
