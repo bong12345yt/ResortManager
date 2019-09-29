@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ResortManagerBUS.BUS
 {
-    class LoaiPhong
+    public class LoaiPhong
     {
-        public static List<ResortManagerDTO.DTO.LoaiPhong> SelectAuthor(out DTO.DTOClasses.DbAck ack)
+        public static List<String> SelectLeverRoom(out ResortManagerDTO.DTO.DbAck ack)
         {
-            return ResortManagerDAO.DAO.LoaiPhong.SelectCatRoon(out ack);
+            return ResortManagerDAO.DAO.LoaiPhong.SelectCatRoom(out ack);
         }
     }
 }
