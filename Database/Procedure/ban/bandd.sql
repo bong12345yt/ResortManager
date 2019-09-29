@@ -1,4 +1,4 @@
-﻿if OBJECT_ID ('ThemThanhVien','p') is not null
+﻿if OBJECT_ID ('usp_ThemThanhVien','p') is not null
 	drop proc usp_ThemThanhVien
 go
 create proc usp_ThemThanhVien
