@@ -9,7 +9,7 @@ namespace ResortManagerDAO.DAO
 {
     public class LoaiPhong
     {
-        public static List<String> SelectCatRoom(out ResortManagerDTO.DTO.DbAck ack)
+        public static List<String> SelectLeverRoom(out ResortManagerDTO.DTO.DbAck ack)
         {
             Provider provider = new Provider();
             ack = provider.Connect();
@@ -30,6 +30,29 @@ namespace ResortManagerDAO.DAO
             }
             provider.Disconnect();
             return lstLeverRoom;
+        }
+
+        public static List<String> SelectTypeRoom(out ResortManagerDTO.DTO.DbAck ack)
+        {
+            Provider provider = new Provider();
+            ack = provider.Connect();
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                return null;
+            }
+            DataTable dt = new DataTable();
+            dt = provider.Select(CommandType.StoredProcedure, "usp_LayDanhSachLoaiPhong", out ack, null);
+            List<String> lstTypeRoom = new List<String>();
+            if (dt == null)
+            {
+                return null;
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                lstTypeRoom.Add(row["HINHTHUC"].ToString());
+            }
+            provider.Disconnect();
+            return lstTypeRoom;
         }
     }
 }

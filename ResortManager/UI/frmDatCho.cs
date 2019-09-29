@@ -20,12 +20,30 @@ namespace ResortManager.UI
         private void frmDatCho_Load(object sender, EventArgs e)
         {
             ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
-            List<String> lstCatRoon = new List<String>();
-            lstCatRoon = ResortManagerBUS.BUS.LoaiPhong.SelectLeverRoom(out ack);
+            List<String> lstLeverRoon = new List<String>();
+            lstLeverRoon = ResortManagerBUS.BUS.LoaiPhong.SelectLeverRoom(out ack);
 
-            foreach(String itemCatRoom in lstCatRoon)
+            foreach(String itemLeverRoom in lstLeverRoon)
             {
-                cmbLever.Items.Add(itemCatRoom);
+                cmbLever.Items.Add(itemLeverRoom);
+            }
+
+            //set list type for cmb
+            List<String> lstTypeRoon = new List<String>();
+            lstTypeRoon = ResortManagerBUS.BUS.LoaiPhong.SelectTypeRoom(out ack);
+
+            foreach (String itemCatRoom in lstTypeRoon)
+            {
+                cmbCatRoom.Items.Add(itemCatRoom);
+            }
+
+            //set list layer for cmb
+            List<String> lstLayerRoom = new List<String>();
+            lstLayerRoom = ResortManagerBUS.BUS.Phong.SelectLayerRoom(out ack);
+
+            foreach (String itemLayerRoom in lstLayerRoom)
+            {
+                cmbLayer.Items.Add("Tầng " + itemLayerRoom);
             }
         }
     }

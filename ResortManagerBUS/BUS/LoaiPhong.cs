@@ -10,7 +10,12 @@ namespace ResortManagerBUS.BUS
     {
         public static List<String> SelectLeverRoom(out ResortManagerDTO.DTO.DbAck ack)
         {
-            return ResortManagerDAO.DAO.LoaiPhong.SelectCatRoom(out ack);
+            return ResortManagerDAO.DAO.LoaiPhong.SelectLeverRoom(out ack);
+        }
+
+        public static List<String> SelectTypeRoom(out ResortManagerDTO.DTO.DbAck ack)
+        {
+            return ResortManagerDAO.DAO.LoaiPhong.SelectTypeRoom(out ack);
         }
     }
 }
