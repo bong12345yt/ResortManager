@@ -48,8 +48,8 @@ namespace ResortManager.UI
                 MessageBox.Show("Mật khẩu không được để trống");
                 return;
             }
-            //bool check = BUS.BUSClasses.LoginUserBUS.CheckLog(txt_user.Text, txt_pass.Text);
-            bool check = true;
+            bool check = ResortManagerBUS.BUS.TaiKhoan.CheckLog(txt_user.Text, txt_pass.Text);
+            //bool check = true;
             if (check == false)
             {
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu ");

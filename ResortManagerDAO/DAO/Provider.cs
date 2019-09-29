@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-using System.Linq;
+using System.Linq; 
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +11,11 @@ namespace ResortManagerDAO.DAO
 {
     class Provider
     {
-        static String ConnectionString = @"Data Source=./SQLEXPRESS;Initial Catalog=ResortManager;Integrated Security=True";
+        static String ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=ResortManager;Integrated Security=True";
 
         SqlConnection Connection { get; set; }
 
-        public DTO.DTOClasses.DbAck Connect()
+        public ResortManagerDTO.DTO.DbAck Connect()
         {
             try
             {
@@ -24,12 +24,12 @@ namespace ResortManagerDAO.DAO
                 if (Connection.State != ConnectionState.Closed)
                     Connection.Close();
                 Connection.Open();
-                return DTO.DTOClasses.DbAck.Ok;
+                return ResortManagerDTO.DTO.DbAck.Ok;
             }
             catch (SqlException ex)
             {
 
-                return (DTO.DTOClasses.DbAck)DTO.DTOClasses.EnumUtils.SetstringValueOf(DTO.DTOClasses.DbAck.NetworkError, ex.Message.ToString());//DTO.DTOClasses.DbAck.NetworkError;
+                return (ResortManagerDTO.DTO.DbAck)ResortManagerDTO.DTO.EnumUtils.SetstringValueOf( ResortManagerDTO.DTO.DbAck.NetworkError, ex.Message.ToString());// ResortManagerDTO.DTO.DbAck.NetworkError;
             }
         }
 
@@ -41,7 +41,7 @@ namespace ResortManagerDAO.DAO
             }
         }
 
-        public DTO.DTOClasses.DbAck ExcuteNonQuery(CommandType _cmdType, String _strSql, params SqlParameter[] _parameters)
+        public ResortManagerDTO.DTO.DbAck ExcuteNonQuery(CommandType _cmdType, String _strSql, params SqlParameter[] _parameters)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace ResortManagerDAO.DAO
                 }
 
                 _command.ExecuteNonQuery();
-                return DTO.DTOClasses.DbAck.Ok;
+                return ResortManagerDTO.DTO.DbAck.Ok;
             }
             catch (SqlException e)
             {
@@ -62,25 +62,25 @@ namespace ResortManagerDAO.DAO
                 if (e.Procedure == "" && _cmdType != CommandType.Text)
                 {
                     //day la loi khong tim thay proce..
-                    return (DTO.DTOClasses.DbAck)DTO.DTOClasses.EnumUtils.SetstringValueOf(DTO.DTOClasses.DbAck.MethoodNotFound, e.Message.ToString());
+                    return (ResortManagerDTO.DTO.DbAck)ResortManagerDTO.DTO.EnumUtils.SetstringValueOf( ResortManagerDTO.DTO.DbAck.MethoodNotFound, e.Message.ToString());
 
                 }
                 else
                 {
                     // loi khong xac dinh
 
-                    return (DTO.DTOClasses.DbAck)DTO.DTOClasses.EnumUtils.SetstringValueOf(DTO.DTOClasses.DbAck.Unknown, e.Message.ToString());
+                    return (ResortManagerDTO.DTO.DbAck)ResortManagerDTO.DTO.EnumUtils.SetstringValueOf( ResortManagerDTO.DTO.DbAck.Unknown, e.Message.ToString());
                 }
 
             }
             catch (SqlTypeException e)
             {
-                return (DTO.DTOClasses.DbAck)DTO.DTOClasses.EnumUtils.SetstringValueOf(DTO.DTOClasses.DbAck.TypeDataErro, e.Message.ToString());
+                return (ResortManagerDTO.DTO.DbAck)ResortManagerDTO.DTO.EnumUtils.SetstringValueOf( ResortManagerDTO.DTO.DbAck.TypeDataErro, e.Message.ToString());
 
             }
         }
 
-        public DataTable Select(CommandType _cmdType, String _strSql, out DTO.DTOClasses.DbAck ack, params SqlParameter[] _parameters)
+        public DataTable Select(CommandType _cmdType, String _strSql, out ResortManagerDTO.DTO.DbAck ack, params SqlParameter[] _parameters)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ResortManagerDAO.DAO
                 DataTable dt = new DataTable();
 
                 da.Fill(dt);
-                ack = DTO.DTOClasses.DbAck.Ok;
+                ack =  ResortManagerDTO.DTO.DbAck.Ok;
                 return dt;
 
             }
@@ -103,11 +103,11 @@ namespace ResortManagerDAO.DAO
             {
                 if (ex.Procedure == "" && _cmdType != CommandType.Text)
                     //day la loi khong tim thay proce..
-                    ack = (DTO.DTOClasses.DbAck)DTO.DTOClasses.EnumUtils.SetstringValueOf(DTO.DTOClasses.DbAck.MethoodNotFound, ex.Message.ToString());
+                    ack = ( ResortManagerDTO.DTO.DbAck) ResortManagerDTO.DTO.EnumUtils.SetstringValueOf( ResortManagerDTO.DTO.DbAck.MethoodNotFound, ex.Message.ToString());
                 else
                 {
                     // loi khong xac dinh
-                    ack = (DTO.DTOClasses.DbAck)DTO.DTOClasses.EnumUtils.SetstringValueOf(DTO.DTOClasses.DbAck.Unknown, ex.Message.ToString());
+                    ack = ( ResortManagerDTO.DTO.DbAck) ResortManagerDTO.DTO.EnumUtils.SetstringValueOf( ResortManagerDTO.DTO.DbAck.Unknown, ex.Message.ToString());
                 }
                 return null;
             }

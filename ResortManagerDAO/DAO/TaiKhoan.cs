@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +8,13 @@ using ResortManagerDTO;
 
 namespace ResortManagerDAO.DAO
 {
-    class TaiKhoan
+    public class TaiKhoan
     {
-        public static List<ResortManagerDTO.DTO.TaiKhoan> SelectLoginUser(out DTO.DTOClasses.DbAck ack)
+        public static List<ResortManagerDTO.DTO.TaiKhoan> SelectLoginUser(out  ResortManagerDTO.DTO.DbAck ack)
         {
             Provider provider = new Provider();
             ack = provider.Connect();
-            if (ack == DTO.DTOClasses.DbAck.NetworkError)
+            if (ack ==  ResortManagerDTO.DTO.DbAck.NetworkError)
             {
                 return null;
             }
