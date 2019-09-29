@@ -8,7 +8,7 @@ namespace ResortManagerBUS.BUS
 {
     public class TaiKhoan
     {
-        public static List<ResortManagerDTO.DTO.TaiKhoan> SelectLoginUser(out DTO.DTOClasses.DbAck ack)
+        public static List<ResortManagerDTO.DTO.TaiKhoan> SelectLoginUser(out  ResortManagerDTO.DTO.DbAck ack)
         {
             return ResortManagerDAO.DAO.TaiKhoan.SelectLoginUser(out ack);
         }
@@ -16,9 +16,9 @@ namespace ResortManagerBUS.BUS
         public static bool CheckLog(string user, string pass)
         {
 
-            DTO.DTOClasses.DbAck ack = new DTO.DTOClasses.DbAck();
+             ResortManagerDTO.DTO.DbAck ack = new  ResortManagerDTO.DTO.DbAck();
             List<ResortManagerDTO.DTO.TaiKhoan> lstLogin = ResortManagerBUS.BUS.TaiKhoan.SelectLoginUser(out ack);
-            if (ack == DTO.DTOClasses.DbAck.NetworkError || lstLogin == null)// chỗ này tài khoản chưa được tạo..
+            if (ack ==  ResortManagerDTO.DTO.DbAck.NetworkError || lstLogin == null)// chỗ này tài khoản chưa được tạo..
             {
                 return false;
             }

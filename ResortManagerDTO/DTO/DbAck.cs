@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO.DTOClasses
+namespace ResortManagerDTO.DTO
 {
     public enum DbAck
     {
