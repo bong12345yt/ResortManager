@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResortManagerDTO.DTO
 {
-    class TaiKhoan
+    public class TaiKhoan
     {
         public String TenTaiKhoan { get; set; }//Mã Sách
         public String MatKhau { get; set; }//tên sách

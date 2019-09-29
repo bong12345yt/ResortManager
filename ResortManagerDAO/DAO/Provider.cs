@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAO.DAOClasses
+namespace ResortManagerDAO.DAO
 {
     class Provider
     {
