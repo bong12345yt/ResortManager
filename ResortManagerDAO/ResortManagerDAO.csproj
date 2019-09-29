@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\LoaiPhong.cs" />
+    <Compile Include="DAO\Phong.cs" />
     <Compile Include="DAO\Provider.cs" />
     <Compile Include="DAO\TaiKhoan.cs" />
+    <Compile Include="DAO\ThanhVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
