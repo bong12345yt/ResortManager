@@ -12,6 +12,7 @@ namespace ResortManager.UI
 {
     public partial class frmTraPhong : UserControl
     {
+        private String MADOAN;
         public frmTraPhong()
         {
             InitializeComponent();
