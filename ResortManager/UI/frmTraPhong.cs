@@ -12,6 +12,7 @@ namespace ResortManager.UI
 {
     public partial class frmTraPhong : UserControl
     {
+        List<ResortManagerDTO.DTO.CTGiaoDich> lstItem = new List<ResortManagerDTO.DTO.CTGiaoDich>();
         private String MADOAN;
         public frmTraPhong()
         {
@@ -20,11 +21,6 @@ namespace ResortManager.UI
 
         private void frmTraPhong_Load(object sender, EventArgs e)
         {
-            dgvLst.Columns[3].DefaultCellStyle.Format = "n3";
-            dgvLst.Columns[4].DefaultCellStyle.Format = "n3";
-            dgvLst.Columns[5].DefaultCellStyle.Format = "n3";
-            dgvLst.Rows.Add(new String[8] { "1", "Trần văn A", "10101010", "200000", "0", "200000", "Trả", "Thêm BT" });
-            dgvLst.Rows.Add(new String[8] { "1", "Trần văn A", "22222222222", "200000", "0", "200000", "Trả", "Thêm BT" });
 
         }
 
@@ -40,6 +36,20 @@ namespace ResortManager.UI
                 int priceIndemnify = int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString());
                 this.dgvLst.Rows[e.RowIndex].Cells[4].Value = (priceIndemnify + bt.Price).ToString();
                 this.dgvLst.Rows[e.RowIndex].Cells[5].Value = (int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString()) + int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[3].Value.ToString())).ToString();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtIdRoom.Text.Trim() != "")
+            {
+                dgvLst.Rows.Clear();
+                ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+                this.lstItem = ResortManagerBUS.BUS.CTGiaoDich.SelectByIdRoom(out ack, txtIdRoom.Text.ToUpper());
+                foreach (ResortManagerDTO.DTO.CTGiaoDich item in this.lstItem)
+                {
+                    dgvLst.Rows.Add(new String[8] {item.HOTEN, item.MADOAN.Trim(), item.CMND.Trim(), item.GIA.ToString(), "0", "0", "Trả phòng", "Thêm BT" });
+                }
             }
         }
     }
