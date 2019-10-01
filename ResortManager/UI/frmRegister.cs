@@ -50,7 +50,7 @@ namespace ResortManager.UI
             gd.NgayBatDau = dtp_DateStart.Value;
             gd.NgayKetThuc = dtp_DateEnd.Value;
             gd.TongTien = 0;
-            gd.CMND = dgvLst.SelectedRows[0].Cells["CMND"].Value.ToString();
+            gd.CMND = dgvLst.Rows[0].Cells["CMND"].Value.ToString();
             gd.TrangThai = "chua_thanh_cong";
             ResortManagerDTO.DTO.DbAck ack2 = ResortManagerBUS.BUS.GiaoDich.ThemGiaoDich(gd);
             if (ack2 != ResortManagerDTO.DTO.DbAck.Ok)

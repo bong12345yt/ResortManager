@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\DanhSachNhanPhong.cs" />
+    <Compile Include="DTO\CTGiaoDich.cs" />
     <Compile Include="DTO\GiaoDich.cs" />
     <Compile Include="DTO\LoaiPhong.cs" />
     <Compile Include="DTO\Phong.cs" />

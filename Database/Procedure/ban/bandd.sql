@@ -54,6 +54,11 @@ create proc usp_ThemGiaoDich
 @CMND nchar(50),
 @TrangThai nvarchar(50)
 as
+	if(CAST(@NgayBatDau AS DATE) >= CAST(@NgayKetThuc AS DATE))
+	begin
+		select N'Ngày bắt đầu phải nhỏ hơn ngày kết thúc'
+		return
+	end
 	begin tran
 	insert into GIAODICH
 	values(@MaDoan,@SoNguoi,@SoPhong,@NgayBatDau,@NgayKetThuc,@TongTien,@CMND,@TrangThai)
@@ -65,6 +70,9 @@ as
 	end
 	commit tran
 go
+
+exec usp_ThemGiaoDich @MaDoan='123456',@SoNguoi=0,@SoPhong=0,@NgayBatDau="2019-10-10 10:00:00.000",
+@NgayKetThuc="2019-10-11 11:00:00.000",@TongTien=0,@CMND='123',@TrangThai='xx'
 
 if OBJECT_ID ('usp_XoaThanhVienTheoMaDoan','p') is not null
 	drop proc usp_XoaThanhVienTheoMaDoan
