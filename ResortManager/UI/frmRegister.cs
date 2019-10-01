@@ -52,10 +52,12 @@ namespace ResortManager.UI
             gd.TongTien = 0;
             gd.CMND = dgvLst.Rows[0].Cells["CMND"].Value.ToString();
             gd.TrangThai = "chua_thanh_cong";
+
             ResortManagerDTO.DTO.DbAck ack2 = ResortManagerBUS.BUS.GiaoDich.ThemGiaoDich(gd);
             if (ack2 != ResortManagerDTO.DTO.DbAck.Ok)
             {
-                MessageBox.Show(ResortManagerDTO.DTO.EnumUtils.stringValueOf(ack2), "Error!", MessageBoxButtons.OK);
+                //MessageBox.Show(ResortManagerDTO.DTO.EnumUtils.stringValueOf(ack2), "Error!", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi ngày");
                 return;
             }
 
