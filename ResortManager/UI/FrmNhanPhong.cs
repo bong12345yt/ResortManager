@@ -20,7 +20,8 @@ namespace ResortManager.UI
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string maGiaoDich = txtMaGiaoDich.Text;
-            List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out ResortManagerDTO.DTO.DbAck ack, maGiaoDich);
+            ResortManagerDTO.DTO.DbAck ack;
+            List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out ack, maGiaoDich);
             foreach (ResortManagerDTO.DTO.DanhSachNhanPhong np in lstNhanPhong) {
                 dtbNhanPhong.Rows.Add(new String[6] { np.MaPhong, np.TinhTrang, np.HinhThuc, np.CMND, np.Hang, "Update" });
             }
