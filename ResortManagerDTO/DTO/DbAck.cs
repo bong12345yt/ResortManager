@@ -25,10 +25,8 @@ namespace ResortManagerDTO.DTO
         AgeError,
         [CustomDecription("Năm xuất bản không đạt yêu cầu!")]
         PublishingYearError,
-
-
-
-
+        [CustomDecription("Ngày bắt đầu không thể lớn ho8n hoặc bằng ngày kết thúc")]
+        DateError
     };
 
 

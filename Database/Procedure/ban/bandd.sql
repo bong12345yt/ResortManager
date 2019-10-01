@@ -52,11 +52,13 @@ create proc usp_ThemGiaoDich
 @NgayKetThuc datetime,
 @TongTien int,
 @CMND nchar(50),
-@TrangThai nvarchar(50)
+@TrangThai nvarchar(50),
+@KetQua int out
 as
 	if(CAST(@NgayBatDau AS DATE) >= CAST(@NgayKetThuc AS DATE))
 	begin
 		select N'Ngày bắt đầu phải nhỏ hơn ngày kết thúc'
+		set @KetQua = -1
 		return
 	end
 	begin tran
@@ -68,6 +70,7 @@ as
 		rollback tran
 		return
 	end
+	set @KetQua = 0
 	commit tran
 go
 
