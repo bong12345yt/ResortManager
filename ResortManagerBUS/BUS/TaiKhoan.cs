@@ -30,5 +30,10 @@ namespace ResortManagerBUS.BUS
             }
             return false;
         }
+
+        public static ResortManagerDTO.DTO.DbAck ThemTaiKhoan(ResortManagerDTO.DTO.TaiKhoan tk)
+        {
+            return ResortManagerDAO.DAO.TaiKhoan.ThemTaiKhoan(tk);
+        }
     }
 }

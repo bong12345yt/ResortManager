@@ -17,13 +17,32 @@ namespace ResortManager.UI
             InitializeComponent();
         }
 
-        private void FrmNhanPhong_Load(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
-            cmb.Items.Add("True");
-            cmb.Items.Add("False");
-            dgvLst.Rows.Add(new String[5] { "1", "Trần văn A", "10101010", "200000", "0"});
-            dgvLst.Rows.Add(new String[5] { "1", "Trần văn A", "22222222222", "200000", "0"});
+            string maGiaoDich = txtMaGiaoDich.Text;
+            List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out ResortManagerDTO.DTO.DbAck ack, maGiaoDich);
+            InitTable(lstNhanPhong);
+        }
+
+        public void InitTable(List<ResortManagerDTO.DTO.DanhSachNhanPhong>  lstNhanPhong) {
+            dtbNhanPhong.Rows.Clear();
+            foreach (ResortManagerDTO.DTO.DanhSachNhanPhong np in lstNhanPhong) {
+                dtbNhanPhong.Rows.Add(new String[6] { np.MaPhong, np.TinhTrang, np.HinhThuc, np.CMND, np.Hang, "Update" });
+            }
+        }
+
+        private void dgvLst_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                string maPhong = this.dtbNhanPhong.Rows[e.RowIndex].Cells[0].Value.ToString();
+                ResortManagerBUS.BUS.DanhSachNhanPhong.UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, maPhong);
+
+
+                string maGiaoDich = txtMaGiaoDich.Text;
+                List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out _, maGiaoDich);
+                InitTable(lstNhanPhong);
+            }
         }
     }
 }

@@ -52,8 +52,15 @@ create proc usp_ThemGiaoDich
 @NgayKetThuc datetime,
 @TongTien int,
 @CMND nchar(50),
-@TrangThai nvarchar(50)
+@TrangThai nvarchar(50),
+@KetQua int out
 as
+	if(CAST(@NgayBatDau AS DATE) >= CAST(@NgayKetThuc AS DATE))
+	begin
+		select N'Ngày bắt đầu phải nhỏ hơn ngày kết thúc'
+		set @KetQua = -1
+		return
+	end
 	begin tran
 	insert into GIAODICH
 	values(@MaDoan,@SoNguoi,@SoPhong,@NgayBatDau,@NgayKetThuc,@TongTien,@CMND,@TrangThai)
@@ -63,8 +70,12 @@ as
 		rollback tran
 		return
 	end
+	set @KetQua = 0
 	commit tran
 go
+
+exec usp_ThemGiaoDich @MaDoan='123456',@SoNguoi=0,@SoPhong=0,@NgayBatDau="2019-10-10 10:00:00.000",
+@NgayKetThuc="2019-10-11 11:00:00.000",@TongTien=0,@CMND='123',@TrangThai='xx'
 
 if OBJECT_ID ('usp_XoaThanhVienTheoMaDoan','p') is not null
 	drop proc usp_XoaThanhVienTheoMaDoan
@@ -96,6 +107,26 @@ as
 	if(@@ERROR <> 0)
 	begin
 		Select N'Xóa giao dịch lỗi'
+		rollback tran
+		return
+	end
+	commit tran
+go
+
+if OBJECT_ID ('usp_ThemTaiKhoan','p') is not null
+	drop proc usp_ThemTaiKhoan
+go
+create proc usp_ThemTaiKhoan
+@TenTK nchar(50),
+@MatKhau nchar(50),
+@MaDoan nchar(30)
+as
+	begin tran
+	insert into TAIKHOANDOAN
+	values(@TenTK,@MatKhau,@MaDoan)
+	if(@@ERROR <> 0)
+	begin
+		Select N'Thêm tài khoản lỗi'
 		rollback tran
 		return
 	end

@@ -1,0 +1,25 @@
+if OBJECT_ID ('usp_DanhSachNhanPhongTheoMaDoan','p') is not null
+	drop proc usp_DanhSachNhanPhongTheoMaDoan
+go
+
+create proc usp_DanhSachNhanPhongTheoMaDoan
+@MADOAN nchar(30)
+as
+	begin tran
+		select p.MAPHONG, p.TINHTRANG, lp.HINHTHUC, lp.HANG, ctgd.CMND
+		from CHITIETGIAODICH as ctgd, PHONG as p, LOAIPHONG as lp
+		where p.MAPHONG = ctgd.MAPHONG
+			and p.MALOAI = lp.MALOAI
+			and ctgd.MADOAN = @MADOAN
+			and p.TINHTRANG = 'dang_dat_cho'
+
+		if(@@ERROR <> 0)
+		begin
+			Select N'Loi lay danh sach nhan phong'
+			rollback tran
+			return
+		end
+	commit tran
+go
+
+exec usp_DanhSachNhanPhongTheoMaDoan @MaDoan='D001'

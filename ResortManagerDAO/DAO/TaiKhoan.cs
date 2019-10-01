@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ResortManagerDTO;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ResortManagerDAO.DAO
 {
@@ -38,6 +40,28 @@ namespace ResortManagerDAO.DAO
             }
             provider.Disconnect();
             return lstUser;
+        }
+
+        public static ResortManagerDTO.DTO.DbAck ThemTaiKhoan(ResortManagerDTO.DTO.TaiKhoan tk)
+        {
+
+            Provider provider = new Provider();
+            ResortManagerDTO.DTO.DbAck result = provider.Connect();
+            if (result == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                goto Network; // net nhu la networkerror thi nhay den lable network
+            }
+            SqlParameter[] para = new SqlParameter[]
+            {
+                       new SqlParameter("@TenTK", tk.TenTaiKhoan),
+                       new SqlParameter("@MatKhau", tk.MatKhau),
+                       new SqlParameter("@MaDoan", tk.MaDoan)
+             };
+            result = provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_ThemTaiKhoan", para);
+            provider.Disconnect();
+        //lable network
+        Network:
+            return result;
         }
     }
 }
