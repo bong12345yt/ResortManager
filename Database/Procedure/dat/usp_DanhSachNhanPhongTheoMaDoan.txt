@@ -12,7 +12,6 @@ as
 			and p.MALOAI = lp.MALOAI
 			and ctgd.MADOAN = @MADOAN
 			and p.TINHTRANG = 'dang_dat_cho'
-			or p.TINHTRANG = 'co_khach'
 
 		if(@@ERROR <> 0)
 		begin

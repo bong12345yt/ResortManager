@@ -44,5 +44,21 @@ namespace ResortManagerDAO.DAO
             provider.Disconnect();
             return lstNhanPhong;
         }
+
+        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong)
+        {
+            Provider provider = new Provider();
+            ack = provider.Connect();
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                return;
+            }
+            DataTable dt = new DataTable();
+            SqlParameter[] para = new SqlParameter[]
+                {
+                       new SqlParameter("@MaPhong", maphong)
+                };
+            provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_CapNhatTinhTrangCoKhach", para);
+        }
     }
 }

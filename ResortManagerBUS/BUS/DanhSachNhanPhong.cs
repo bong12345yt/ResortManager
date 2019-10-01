@@ -12,5 +12,9 @@ namespace ResortManagerBUS.BUS
         {
             return ResortManagerDAO.DAO.DanhSachNhanPhong.getListNhanPhong(out ack, txtMaGiaoDich);
         }
+
+        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong) {
+            ResortManagerDAO.DAO.DanhSachNhanPhong.UpdateStatus(out ack, maphong);
+        }
     }
 }

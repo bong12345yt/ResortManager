@@ -21,7 +21,13 @@ namespace ResortManager.UI
         {
             string maGiaoDich = txtMaGiaoDich.Text;
             List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out ResortManagerDTO.DTO.DbAck ack, maGiaoDich);
-            foreach (ResortManagerDTO.DTO.DanhSachNhanPhong np in lstNhanPhong) {
+            InitTable(lstNhanPhong);
+        }
+
+        public void InitTable(List<ResortManagerDTO.DTO.DanhSachNhanPhong>  lstNhanPhong) {
+            dtbNhanPhong.Rows.Clear();
+            foreach (ResortManagerDTO.DTO.DanhSachNhanPhong np in lstNhanPhong)
+            {
                 dtbNhanPhong.Rows.Add(new String[6] { np.MaPhong, np.TinhTrang, np.HinhThuc, np.CMND, np.Hang, "Update" });
             }
         }
@@ -31,7 +37,12 @@ namespace ResortManager.UI
             if (e.ColumnIndex == 5)
             {
                 string maPhong = this.dtbNhanPhong.Rows[e.RowIndex].Cells[0].Value.ToString();
-                Console.WriteLine(maPhong);
+                ResortManagerBUS.BUS.DanhSachNhanPhong.UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, maPhong);
+
+
+                string maGiaoDich = txtMaGiaoDich.Text;
+                List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out _, maGiaoDich);
+                InitTable(lstNhanPhong);
             }
         }
     }
