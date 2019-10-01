@@ -112,3 +112,23 @@ as
 	end
 	commit tran
 go
+
+if OBJECT_ID ('usp_ThemTaiKhoan','p') is not null
+	drop proc usp_ThemTaiKhoan
+go
+create proc usp_ThemTaiKhoan
+@TenTK nchar(50),
+@MatKhau nchar(50),
+@MaDoan nchar(30)
+as
+	begin tran
+	insert into TAIKHOANDOAN
+	values(@TenTK,@MatKhau,@MaDoan)
+	if(@@ERROR <> 0)
+	begin
+		Select N'Thêm tài khoản lỗi'
+		rollback tran
+		return
+	end
+	commit tran
+go

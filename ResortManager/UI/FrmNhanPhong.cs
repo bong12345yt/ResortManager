@@ -26,8 +26,7 @@ namespace ResortManager.UI
 
         public void InitTable(List<ResortManagerDTO.DTO.DanhSachNhanPhong>  lstNhanPhong) {
             dtbNhanPhong.Rows.Clear();
-            foreach (ResortManagerDTO.DTO.DanhSachNhanPhong np in lstNhanPhong)
-            {
+            foreach (ResortManagerDTO.DTO.DanhSachNhanPhong np in lstNhanPhong) {
                 dtbNhanPhong.Rows.Add(new String[6] { np.MaPhong, np.TinhTrang, np.HinhThuc, np.CMND, np.Hang, "Update" });
             }
         }

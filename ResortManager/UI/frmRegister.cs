@@ -96,6 +96,27 @@ namespace ResortManager.UI
                 }
             }
 
+            //Them tai khoan
+            ResortManagerDTO.DTO.TaiKhoan tk = new ResortManagerDTO.DTO.TaiKhoan();
+            tk.MaDoan = MaDoan;
+            tk.TenTaiKhoan = MaDoan;
+            tk.MatKhau = "123456";
+            ResortManagerDTO.DTO.DbAck ack5 = ResortManagerBUS.BUS.TaiKhoan.ThemTaiKhoan(tk);
+            if (ack5 != ResortManagerDTO.DTO.DbAck.Ok)
+            {
+                MessageBox.Show(ResortManagerDTO.DTO.EnumUtils.stringValueOf(ack5), "Error!", MessageBoxButtons.OK);
+                return;
+            }
+
+            else if (ack5 == ResortManagerDTO.DTO.DbAck.Ok)
+            {
+                MessageBox.Show("Thêm tài khoản thành công");
+                if (ack5 == ResortManagerDTO.DTO.DbAck.NetworkError)
+                {
+                    MessageBox.Show(ResortManagerDTO.DTO.DbAck.NetworkError.ToString(), "Error!", MessageBoxButtons.OK);
+                }
+            }
+
             return;
 
         //label Error
