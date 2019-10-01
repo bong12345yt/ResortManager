@@ -28,7 +28,11 @@ namespace ResortManager.UI
 
         private void dgvLst_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine(sender);
+            if (e.ColumnIndex == 5)
+            {
+                string maPhong = this.dtbNhanPhong.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Console.WriteLine(maPhong);
+            }
         }
     }
 }
