@@ -12,5 +12,13 @@ namespace ResortManagerBUS.BUS
         {
             return ResortManagerDAO.DAO.CTGiaoDich.SelectByIdRoom(out ack, IdRoom);
         }
+        public static ResortManagerDTO.DTO.DbAck ThemCTGD(ResortManagerDTO.DTO.CTGiaoDich ctgd)
+        {
+            return ResortManagerDAO.DAO.CTGiaoDich.ThemCTGD(ctgd);
+        }
+        public static String LayMaCTDG(out ResortManagerDTO.DTO.DbAck ack, String cmnd)
+        {
+            return ResortManagerDAO.DAO.CTGiaoDich.LayMaCTDG(out ack, cmnd);
+        }
     }
 }

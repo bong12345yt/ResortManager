@@ -44,5 +44,49 @@ namespace ResortManagerDAO.DAO
             provider.Disconnect();
             return lstItem;
         }
+
+        public static ResortManagerDTO.DTO.DbAck ThemCTGD(ResortManagerDTO.DTO.CTGiaoDich ctgd)
+        {
+
+            Provider provider = new Provider();
+            ResortManagerDTO.DTO.DbAck result = provider.Connect();
+            if (result == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                goto Network; // net nhu la networkerror thi nhay den lable network
+            }
+            SqlParameter[] para = new SqlParameter[]
+            {
+                       new SqlParameter("@cmnd", ctgd.CMND),
+                       new SqlParameter("@maDoan", ctgd.MADOAN),
+                       new SqlParameter("@maPhong", ctgd.MAPHONG)
+             };
+            result = provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_ThemChiTietGiaoDich", para);
+            provider.Disconnect();
+        //lable network
+        Network:
+            return result;
+        }
+
+        public static String LayMaCTDG(out ResortManagerDTO.DTO.DbAck ack, String cmnd)
+        {
+            Provider provider = new Provider();
+            ack = provider.Connect();
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                return null;
+            }
+            DataTable dt = new DataTable();
+            SqlParameter[] para = new SqlParameter[]
+                {
+                       new SqlParameter("@cmnd", cmnd)
+                };
+            dt = provider.Select(CommandType.StoredProcedure, "usp_LayMaCTGD", out ack, para);
+            if (dt == null)
+            {
+                return null;
+            }
+            provider.Disconnect();
+            return dt.Rows[0]["MACHITIET"].ToString();
+        }
     }
 }
