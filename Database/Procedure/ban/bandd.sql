@@ -15,6 +15,15 @@ as
 		rollback tran
 		return
 	end
+	update GIAODICH
+	set SONGUOI=SONGUOI+1
+	where MADOAN=@MaDoan
+	if(@@ERROR <> 0)
+	begin
+		Select N'Cập nhập số người trong giao dịch lỗi'
+		rollback tran
+		return
+	end
 	commit tran
 go
 
@@ -67,6 +76,14 @@ as
 	if(@@ERROR <> 0)
 	begin
 		Select N'Thêm giao dịch lỗi'
+		rollback tran
+		return
+	end
+	insert into TAIKHOANDOAN
+	values(@MaDoan,'123456',@MaDoan)
+	if(@@ERROR <> 0)
+	begin
+		Select N'Thêm tài khoản lỗi'
 		rollback tran
 		return
 	end

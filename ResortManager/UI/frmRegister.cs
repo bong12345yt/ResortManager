@@ -45,7 +45,7 @@ namespace ResortManager.UI
             //Them giao dich
             ResortManagerDTO.DTO.GiaoDich gd = new ResortManagerDTO.DTO.GiaoDich();
             gd.MaDoan = MaDoan;
-            gd.SoNguoi = dgvLst.Rows.Count;
+            gd.SoNguoi = 0;
             gd.SoPhong = 0;
             gd.NgayBatDau = dtp_DateStart.Value;
             gd.NgayKetThuc = dtp_DateEnd.Value;
@@ -63,7 +63,7 @@ namespace ResortManager.UI
 
             else if (ack2 == ResortManagerDTO.DTO.DbAck.Ok)
             {
-                MessageBox.Show("Thêm giao dịch thành công");
+                MessageBox.Show(string.Format("Thêm giao dịch thành công\n Tài khoản của đoàn là {0}\n Mật khẩu là 123456",MaDoan),"Kết quả", MessageBoxButtons.OK);
                 if (ack2 == ResortManagerDTO.DTO.DbAck.NetworkError)
                 {
                     MessageBox.Show(ResortManagerDTO.DTO.DbAck.NetworkError.ToString(), "Error!", MessageBoxButtons.OK);
@@ -97,25 +97,25 @@ namespace ResortManager.UI
             }
 
             //Them tai khoan
-            ResortManagerDTO.DTO.TaiKhoan tk = new ResortManagerDTO.DTO.TaiKhoan();
-            tk.MaDoan = MaDoan;
-            tk.TenTaiKhoan = MaDoan;
-            tk.MatKhau = "123456";
-            ResortManagerDTO.DTO.DbAck ack5 = ResortManagerBUS.BUS.TaiKhoan.ThemTaiKhoan(tk);
-            if (ack5 != ResortManagerDTO.DTO.DbAck.Ok)
-            {
-                MessageBox.Show(ResortManagerDTO.DTO.EnumUtils.stringValueOf(ack5), "Error!", MessageBoxButtons.OK);
-                return;
-            }
+            //ResortManagerDTO.DTO.TaiKhoan tk = new ResortManagerDTO.DTO.TaiKhoan();
+            //tk.MaDoan = MaDoan;
+            //tk.TenTaiKhoan = MaDoan;
+            //tk.MatKhau = "123456";
+            //ResortManagerDTO.DTO.DbAck ack5 = ResortManagerBUS.BUS.TaiKhoan.ThemTaiKhoan(tk);
+            //if (ack5 != ResortManagerDTO.DTO.DbAck.Ok)
+            //{
+            //    MessageBox.Show(ResortManagerDTO.DTO.EnumUtils.stringValueOf(ack5), "Error!", MessageBoxButtons.OK);
+            //    return;
+            //}
 
-            else if (ack5 == ResortManagerDTO.DTO.DbAck.Ok)
-            {
-                MessageBox.Show("Thêm tài khoản thành công");
-                if (ack5 == ResortManagerDTO.DTO.DbAck.NetworkError)
-                {
-                    MessageBox.Show(ResortManagerDTO.DTO.DbAck.NetworkError.ToString(), "Error!", MessageBoxButtons.OK);
-                }
-            }
+            //else if (ack5 == ResortManagerDTO.DTO.DbAck.Ok)
+            //{
+            //    MessageBox.Show("Thêm tài khoản thành công");
+            //    if (ack5 == ResortManagerDTO.DTO.DbAck.NetworkError)
+            //    {
+            //        MessageBox.Show(ResortManagerDTO.DTO.DbAck.NetworkError.ToString(), "Error!", MessageBoxButtons.OK);
+            //    }
+            //}
 
             return;
 
