@@ -73,21 +73,6 @@ namespace ResortManager.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            String strName = "";
-            foreach(ResortManagerDTO.DTO.ThanhVien item in this.lstUser)
-            {
-                if (item.CMND.Trim() == txtCMND_TV1.Text.Trim())
-                {
-                    strName = item.HoTen.Trim();
-                    this.lstUser.Remove(item);
-                    break;
-                }
-            }
-            if (strName == "")
-            {
-                MessageBox.Show("Thành viên không tồn tại hoặc đã có phòng");
-                return;
-            }
             if (cmbRoom.SelectedItem.ToString().Split('-')[1] == "1_giuong_don" && dgvLst.Rows.Count >= 1){
                 MessageBox.Show("Đã đầy");
                 return;
@@ -105,6 +90,21 @@ namespace ResortManager.UI
             if (cmbRoom.SelectedItem.ToString().Split('-')[1] == "2_giuong_doi" && dgvLst.Rows.Count >= 4)
             {
                 MessageBox.Show("Đã đầy");
+                return;
+            }
+            String strName = "";
+            foreach (ResortManagerDTO.DTO.ThanhVien item in this.lstUser)
+            {
+                if (item.CMND.Trim() == txtCMND_TV1.Text.Trim())
+                {
+                    strName = item.HoTen.Trim();
+                    this.lstUser.Remove(item);
+                    break;
+                }
+            }
+            if (strName == "")
+            {
+                MessageBox.Show("Thành viên không tồn tại hoặc đã có phòng");
                 return;
             }
             dgvLst.Rows.Add(new String[2] { txtCMND_TV1.Text.Trim(), strName });

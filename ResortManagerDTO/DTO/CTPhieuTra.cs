@@ -11,6 +11,6 @@ namespace ResortManagerDTO.DTO
         public long MACHITIET { get; set; }
         public String MABOITHUONG { get; set; }
         public int SOLUONG { get; set; }
-        public String MAPHIEUTRA { get; set; }
+        public int MAPHIEUTRA { get; set; }
     }
 }

@@ -88,7 +88,6 @@ namespace ResortManager.UI
             for (int i =0; i < dgvLst.RowCount; i++)
             {
                 ResortManagerBUS.BUS.Phong.UpdateStatus(out ack, dgvLst[1, i].Value.ToString());
-                //ack = ResortManagerBUS.BUS.CTGiaoDich.ThemCTGD();
                 this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
             }
             

@@ -12,7 +12,7 @@ namespace ResortManager.UI
 {
     public partial class frmTraPhong : UserControl
     {
-        List<ResortManagerDTO.DTO.CTGiaoDich> lstItem = new List<ResortManagerDTO.DTO.CTGiaoDich>();
+        List<ResortManagerDTO.DTO.CTGiaoDich> DS_CTGD = new List<ResortManagerDTO.DTO.CTGiaoDich>();
         List<ResortManagerDTO.DTO.BoiThuong> lstBoiThuong = new List<ResortManagerDTO.DTO.BoiThuong>();
         private String MADOAN;
         public frmTraPhong()
@@ -27,16 +27,29 @@ namespace ResortManager.UI
 
         private void dgvLst_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmBoiThuong bt;
             if (e.ColumnIndex == 7)
             {
-                String str = "txt";
-                bt = new frmBoiThuong(str);
+                frmBoiThuong bt;
+                bt = new frmBoiThuong(this.DS_CTGD[e.RowIndex].MACHITIET);
                 bt.ShowDialog();
                 //MessageBox.Show(bt.Price.ToString());
-                int priceIndemnify = int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString());
-                this.dgvLst.Rows[e.RowIndex].Cells[4].Value = (priceIndemnify + bt.Price).ToString();
+                this.dgvLst.Rows[e.RowIndex].Cells[4].Value = "0";
+                this.dgvLst.Rows[e.RowIndex].Cells[5].Value = "0";
+                int tienPhong = int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString());
+                this.dgvLst.Rows[e.RowIndex].Cells[4].Value = (tienPhong + bt.PhiBoiThuong).ToString();
                 this.dgvLst.Rows[e.RowIndex].Cells[5].Value = (int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString()) + int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[3].Value.ToString())).ToString();
+            }
+            if (e.ColumnIndex == 6)
+            {
+                ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+                int maCTGD = this.DS_CTGD[e.RowIndex].MACHITIET;
+                int tongTien = int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[5].Value.ToString());
+                ack = ResortManagerBUS.BUS.PhieuTra.CapNhatPhieuTraTheoMaCTGD(maCTGD, tongTien);
+                if (ack != ResortManagerDTO.DTO.DbAck.Ok)
+                {
+                    MessageBox.Show("Trả phòng lỗi");
+                    return;
+                }
             }
         }
 
@@ -46,12 +59,13 @@ namespace ResortManager.UI
             {
                 dgvLst.Rows.Clear();
                 ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
-                this.lstItem = ResortManagerBUS.BUS.CTGiaoDich.SelectByIdRoom(out ack, txtIdRoom.Text.ToUpper());
-                foreach (ResortManagerDTO.DTO.CTGiaoDich item in this.lstItem)
+                this.DS_CTGD = ResortManagerBUS.BUS.CTGiaoDich.SelectByIdRoom(out ack, txtIdRoom.Text.ToUpper());
+                foreach (ResortManagerDTO.DTO.CTGiaoDich item in this.DS_CTGD)
                 {
                     dgvLst.Rows.Add(new String[8] {item.HOTEN, item.MADOAN.Trim(), item.CMND.Trim(), item.GIA.ToString(), "0", "0", "Trả phòng", "Thêm BT" });
                 }
             }
         }
+        
     }
 }

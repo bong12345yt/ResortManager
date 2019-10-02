@@ -12,5 +12,10 @@ namespace ResortManagerBUS.BUS
         {
             return ResortManagerDAO.DAO.PhieuTra.ThemPhieuTra(MaCTGD);
         }
+        public static ResortManagerDTO.DTO.DbAck CapNhatPhieuTraTheoMaCTGD(int MaCTGD, int TongTien)
+        {
+
+            return ResortManagerDAO.DAO.PhieuTra.CapNhatPhieuTraTheoMaCTGD(MaCTGD, TongTien);
+        }
     }
 }

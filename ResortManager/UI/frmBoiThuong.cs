@@ -13,11 +13,17 @@ namespace ResortManager.UI
     public partial class frmBoiThuong : Form
     {
         public String CMND;
-        public int Price;
+        public long PhiBoiThuong = 0;
         private List<ResortManagerDTO.DTO.BoiThuong> lstItem = new List<ResortManagerDTO.DTO.BoiThuong>();
         private List<ResortManagerDTO.DTO.CTPhieuTra> lstCTPT = new List<ResortManagerDTO.DTO.CTPhieuTra>();
+        private int MaCTGD;
         public frmBoiThuong()
         {
+            InitializeComponent();
+        }
+        public frmBoiThuong(int MaCTGD)
+        {
+            this.MaCTGD = MaCTGD;
             InitializeComponent();
         }
 
@@ -30,18 +36,31 @@ namespace ResortManager.UI
             {
                 cmbItem.Items.Add(item.MOTA);
             }
-        }
-        public frmBoiThuong(String txt)
-        {
-            this.CMND = txt;
-            InitializeComponent();
+
+            List<ResortManagerDTO.DTO.CTPhieuTra> CTPTcuaKH = new List<ResortManagerDTO.DTO.CTPhieuTra>();
+            CTPTcuaKH = ResortManagerBUS.BUS.CTPhieuTra.LayCTPTtheoMaCTGD(out ack, this.MaCTGD);
+            if (CTPTcuaKH.Count > 0)
+            {
+                foreach(ResortManagerDTO.DTO.CTPhieuTra ct in CTPTcuaKH)
+                {
+                    foreach (ResortManagerDTO.DTO.BoiThuong item in this.lstItem)
+                    {
+                        if (ct.MABOITHUONG.Trim() == item.MABOITHUONG.Trim())
+                        {
+                            dgvLst.Rows.Add(new String[4] { item.MABOITHUONG.Trim(), item.MOTA.Trim(), item.SOTIEN.ToString(), ct.SOLUONG.ToString() });
+                            this.PhiBoiThuong += (item.SOTIEN * ct.SOLUONG);
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             for(int i = 0; i < this.lstCTPT.Count; i++)
             {
-                ResortManagerDTO.DTO.DbAck ack = ResortManagerBUS.BUS.CTPhieuTra.ThemCTPT(this.lstCTPT[0]);
+                ResortManagerDTO.DTO.DbAck ack = ResortManagerBUS.BUS.CTPhieuTra.ThemCTPT(this.lstCTPT[i], this.MaCTGD);
             }
             this.Dispose();
             this.Close();
@@ -66,11 +85,14 @@ namespace ResortManager.UI
             {
                 if (item.MOTA == cmbItem.SelectedItem.ToString())
                 {
-                    dgvLst.Rows.Add(new String[3] { item.MABOITHUONG.Trim(), item.MOTA.Trim(), item.SOTIEN.ToString() });
+                    ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+                    dgvLst.Rows.Add(new String[4] { item.MABOITHUONG.Trim(), item.MOTA.Trim(), item.SOTIEN.ToString(), txtNum.Text.Trim() });
                     ResortManagerDTO.DTO.CTPhieuTra ctpt = new ResortManagerDTO.DTO.CTPhieuTra();
                     ctpt.MABOITHUONG = item.MABOITHUONG;
                     ctpt.SOLUONG = int.Parse(txtNum.Text);
+                    ctpt.MAPHIEUTRA = ResortManagerBUS.BUS.CTPhieuTra.LayMaPhieuTraTheoMaCTGD(out ack, this.MaCTGD);
                     this.lstCTPT.Add(ctpt);
+                    this.PhiBoiThuong += (item.SOTIEN * int.Parse(txtNum.Text.Trim()));
                     break;
                 }
             }
