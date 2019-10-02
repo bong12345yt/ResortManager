@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\BoiThuong.cs" />
     <Compile Include="DTO\DanhSachNhanPhong.cs" />
     <Compile Include="DTO\CTGiaoDich.cs" />
+    <Compile Include="DTO\CTPhieuTra.cs" />
     <Compile Include="DTO\GiaoDich.cs" />
     <Compile Include="DTO\LoaiPhong.cs" />
+    <Compile Include="DTO\PhieuTra.cs" />
     <Compile Include="DTO\Phong.cs" />
     <Compile Include="DTO\DbAck.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />

@@ -13,6 +13,7 @@ namespace ResortManager.UI
     public partial class frmTraPhong : UserControl
     {
         List<ResortManagerDTO.DTO.CTGiaoDich> lstItem = new List<ResortManagerDTO.DTO.CTGiaoDich>();
+        List<ResortManagerDTO.DTO.BoiThuong> lstBoiThuong = new List<ResortManagerDTO.DTO.BoiThuong>();
         private String MADOAN;
         public frmTraPhong()
         {
