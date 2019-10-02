@@ -19,8 +19,9 @@ namespace ResortManager.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
             string maGiaoDich = txtMaGiaoDich.Text;
-            List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out ResortManagerDTO.DTO.DbAck ack, maGiaoDich);
+            List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out ack, maGiaoDich);
             InitTable(lstNhanPhong);
         }
 
@@ -33,14 +34,15 @@ namespace ResortManager.UI
 
         private void dgvLst_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
             if (e.ColumnIndex == 5)
             {
                 string maPhong = this.dtbNhanPhong.Rows[e.RowIndex].Cells[0].Value.ToString();
-                ResortManagerBUS.BUS.DanhSachNhanPhong.UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, maPhong);
+                ResortManagerBUS.BUS.DanhSachNhanPhong.UpdateStatus(out ack, maPhong);
 
 
                 string maGiaoDich = txtMaGiaoDich.Text;
-                List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out _, maGiaoDich);
+                List<ResortManagerDTO.DTO.DanhSachNhanPhong> lstNhanPhong = ResortManagerBUS.BUS.DanhSachNhanPhong.getListNhanPhong(out ack, maGiaoDich);
                 InitTable(lstNhanPhong);
             }
         }
