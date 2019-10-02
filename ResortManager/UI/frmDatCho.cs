@@ -87,7 +87,7 @@ namespace ResortManager.UI
             ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
             for (int i =0; i < dgvLst.RowCount; i++)
             {
-                ResortManagerBUS.BUS.Phong.UpdateStatus(out ack, dgvLst[1, i].Value.ToString());
+                ResortManagerBUS.BUS.Phong.UpdateStatus(out ack, dgvLst[1, i].Value.ToString(), this.MaDoan);
                 this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
             }
             

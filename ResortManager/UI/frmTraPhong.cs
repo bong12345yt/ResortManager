@@ -62,7 +62,7 @@ namespace ResortManager.UI
                 this.DS_CTGD = ResortManagerBUS.BUS.CTGiaoDich.SelectByIdRoom(out ack, txtIdRoom.Text.ToUpper());
                 foreach (ResortManagerDTO.DTO.CTGiaoDich item in this.DS_CTGD)
                 {
-                    dgvLst.Rows.Add(new String[8] {item.HOTEN, item.MADOAN.Trim(), item.CMND.Trim(), item.GIA.ToString(), "0", "0", "Trả phòng", "Thêm BT" });
+                    dgvLst.Rows.Add(new String[8] {item.HOTEN, item.MADOAN.Trim(), item.CMND.Trim(), item.GIA.ToString(), "0", item.GIA.ToString(), "Trả phòng", "Thêm BT" });
                 }
             }
         }

@@ -69,7 +69,7 @@ namespace ResortManagerDAO.DAO
             return lstRoom;
         }
 
-        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong)
+        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong, string MaDoan)
         {
             Provider provider = new Provider();
             ack = provider.Connect();
@@ -80,7 +80,8 @@ namespace ResortManagerDAO.DAO
             DataTable dt = new DataTable();
             SqlParameter[] para = new SqlParameter[]
                 {
-                       new SqlParameter("@maphong", maphong)
+                       new SqlParameter("@maphong", maphong),
+                       new SqlParameter("@maDoan", MaDoan)
                 };
             provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_CapNhatTinhTrangPhong", para);
         }
