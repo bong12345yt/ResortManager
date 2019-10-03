@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbLever = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,9 +44,9 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRegis = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,7 @@
             this.cmbLever.Name = "cmbLever";
             this.cmbLever.Size = new System.Drawing.Size(219, 24);
             this.cmbLever.TabIndex = 12;
+            this.cmbLever.SelectedIndexChanged += new System.EventHandler(this.cmbLever_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -76,7 +77,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(1050, 94);
             this.label4.TabIndex = 18;
-            this.label4.Text = "ĐẶT CHỔ";
+            this.label4.Text = "ĐẶT CHỖ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbLayer
@@ -103,6 +104,7 @@
             this.cmbCatRoom.Name = "cmbCatRoom";
             this.cmbCatRoom.Size = new System.Drawing.Size(219, 24);
             this.cmbCatRoom.TabIndex = 22;
+            this.cmbCatRoom.SelectedIndexChanged += new System.EventHandler(this.cmbCatRoom_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -115,7 +117,8 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(630, 119);
+            this.txtPrice.Enabled = false;
+            this.txtPrice.Location = new System.Drawing.Point(575, 132);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(122, 22);
             this.txtPrice.TabIndex = 24;
@@ -123,7 +126,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(560, 121);
+            this.label5.Location = new System.Drawing.Point(505, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 17);
             this.label5.TabIndex = 23;
@@ -131,7 +134,7 @@
             // 
             // txtNum
             // 
-            this.txtNum.Location = new System.Drawing.Point(630, 149);
+            this.txtNum.Location = new System.Drawing.Point(575, 162);
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(122, 22);
             this.txtNum.TabIndex = 26;
@@ -139,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(560, 151);
+            this.label6.Location = new System.Drawing.Point(505, 164);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 25;
@@ -147,6 +150,7 @@
             // 
             // dgvLst
             // 
+            this.dgvLst.AllowUserToAddRows = false;
             this.dgvLst.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -156,19 +160,18 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4,
             this.Column5});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvLst.Location = new System.Drawing.Point(117, 266);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvLst.Location = new System.Drawing.Point(117, 300);
             this.dgvLst.Name = "dgvLst";
             this.dgvLst.ReadOnly = true;
             this.dgvLst.RowHeadersVisible = false;
@@ -198,13 +201,6 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 108.4844F;
-            this.Column4.HeaderText = "Loại";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
             // Column5
             // 
             this.Column5.FillWeight = 108.4844F;
@@ -217,15 +213,28 @@
             this.btnRegis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRegis.Location = new System.Drawing.Point(699, 426);
             this.btnRegis.Name = "btnRegis";
-            this.btnRegis.Size = new System.Drawing.Size(76, 33);
+            this.btnRegis.Size = new System.Drawing.Size(102, 33);
             this.btnRegis.TabIndex = 28;
             this.btnRegis.Text = "Đặt";
             this.btnRegis.UseVisualStyleBackColor = true;
+            this.btnRegis.Click += new System.EventHandler(this.btnRegis_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Location = new System.Drawing.Point(710, 140);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(97, 33);
+            this.btnSearch.TabIndex = 29;
+            this.btnSearch.Text = "Tra cứu";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmDatCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnRegis);
             this.Controls.Add(this.dgvLst);
             this.Controls.Add(this.txtNum);
@@ -262,11 +271,11 @@
         private System.Windows.Forms.TextBox txtNum;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvLst;
+        private System.Windows.Forms.Button btnRegis;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Button btnRegis;
     }
 }

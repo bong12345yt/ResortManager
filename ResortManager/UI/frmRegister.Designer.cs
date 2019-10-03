@@ -41,10 +41,9 @@
             this.btn_Add = new System.Windows.Forms.Button();
             this.btn_Register = new System.Windows.Forms.Button();
             this.dgvLst = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +117,7 @@
             // 
             this.dtp_DateStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_DateStart.Location = new System.Drawing.Point(705, 127);
-            this.dtp_DateStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_DateStart.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateStart.Name = "dtp_DateStart";
             this.dtp_DateStart.Size = new System.Drawing.Size(265, 22);
             this.dtp_DateStart.TabIndex = 27;
@@ -127,7 +126,7 @@
             // 
             this.dtp_DateEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_DateEnd.Location = new System.Drawing.Point(705, 185);
-            this.dtp_DateEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_DateEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DateEnd.Name = "dtp_DateEnd";
             this.dtp_DateEnd.Size = new System.Drawing.Size(265, 22);
             this.dtp_DateEnd.TabIndex = 28;
@@ -135,23 +134,25 @@
             // btn_Add
             // 
             this.btn_Add.Location = new System.Drawing.Point(67, 533);
-            this.btn_Add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(100, 28);
             this.btn_Add.TabIndex = 29;
             this.btn_Add.Text = "Thêm";
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Register
             // 
             this.btn_Register.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Register.Location = new System.Drawing.Point(877, 533);
-            this.btn_Register.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Register.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(100, 28);
             this.btn_Register.TabIndex = 30;
             this.btn_Register.Text = "Đăng kí";
             this.btn_Register.UseVisualStyleBackColor = true;
+            this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
             // 
             // dgvLst
             // 
@@ -161,10 +162,9 @@
             this.dgvLst.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
+            this.HoTen,
+            this.CMND,
+            this.Remove});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -183,36 +183,31 @@
             this.dgvLst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLst.Size = new System.Drawing.Size(787, 117);
             this.dgvLst.TabIndex = 31;
+            this.dgvLst.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLst_CellContentClick);
             // 
-            // Column1
+            // HoTen
             // 
-            this.Column1.FillWeight = 40.57286F;
-            this.Column1.HeaderText = "STT";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.HoTen.FillWeight = 108.3875F;
+            this.HoTen.HeaderText = "Tên";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
             // 
-            // Column2
+            // CMND
             // 
-            this.Column2.FillWeight = 108.3875F;
-            this.Column2.HeaderText = "Tên";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.CMND.FillWeight = 108.3875F;
+            this.CMND.HeaderText = "CMND";
+            this.CMND.Name = "CMND";
+            this.CMND.ReadOnly = true;
             // 
-            // Column3
+            // Remove
             // 
-            this.Column3.FillWeight = 108.3875F;
-            this.Column3.HeaderText = "CMND";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 46.23014F;
-            this.Column4.HeaderText = "";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Remove.FillWeight = 46.23014F;
+            this.Remove.HeaderText = "";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Remove.Text = "Hủy";
             // 
             // frmRegister
             // 
@@ -230,7 +225,7 @@
             this.Controls.Add(this.txt_Name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRegister";
             this.Size = new System.Drawing.Size(1051, 582);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).EndInit();
@@ -253,9 +248,8 @@
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Button btn_Register;
         private System.Windows.Forms.DataGridView dgvLst;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewButtonColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResortManagerDTO.DTO
 {
-    class ThanhVien
+    public class ThanhVien
     {
         public String CMND { get; set; }
 

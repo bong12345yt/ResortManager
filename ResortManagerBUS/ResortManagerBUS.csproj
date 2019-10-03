@@ -41,8 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\DatChoRecord.cs" />
+    <Compile Include="BUS\GiaoDich.cs" />
     <Compile Include="BUS\LoaiPhong.cs" />
+    <Compile Include="BUS\Phong.cs" />
     <Compile Include="BUS\TaiKhoan.cs" />
+    <Compile Include="BUS\ThanhVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

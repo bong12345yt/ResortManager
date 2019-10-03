@@ -12,6 +12,8 @@ namespace ResortManagerDTO.DTO
         public int TANG { get; set; } //tầng
         public String TINHTRANG { get; set; } //tình trạng
         public String MALOAI { get; set; } // mã loại (VIP - 1 người...)
+        public String TENLOAI { get; set; }
+        public int GIA { get; set; }
 
 
     }
