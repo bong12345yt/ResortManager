@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,7 @@ namespace ResortManagerBUS.BUS
 {
     public class LoaiPhong
     {
+
         public static List<String> SelectLeverRoom(out ResortManagerDTO.DTO.DbAck ack)
         {
             return ResortManagerDAO.DAO.LoaiPhong.SelectLeverRoom(out ack);

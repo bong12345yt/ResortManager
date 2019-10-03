@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DatChoRecord.cs" />
     <Compile Include="DTO\BoiThuong.cs" />
     <Compile Include="DTO\DanhSachNhanPhong.cs" />
     <Compile Include="DTO\CTGiaoDich.cs" />
@@ -50,7 +51,7 @@
     <Compile Include="DTO\Phong.cs" />
     <Compile Include="DTO\DbAck.cs" />
     <Compile Include="DTO\TaiKhoan.cs" />
-    <Compile Include="DTO\ThanhVien.cs" />
+	<Compile Include="DTO\ThanhVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

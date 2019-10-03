@@ -13,6 +13,7 @@ namespace ResortManager
 {
     public partial class frmHome : Form
     {
+        static public String ActiveAccount = "";
         frmLogin frm_login = new frmLogin();
         public frmHome()
         {
@@ -103,8 +104,7 @@ namespace ResortManager
             DialogResult result = frm_login.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //MaNVHienHanh = frmLogin.MaNVHienHanh;
-                //afterLogin();
+                ActiveAccount = frmLogin.ActiveAcount;
                 AfterLogin();
             }
         }
