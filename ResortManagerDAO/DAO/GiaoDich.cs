@@ -36,6 +36,10 @@ namespace ResortManagerDAO.DAO
             {
                 goto Network; // net nhu la networkerror thi nhay den lable network
             }
+
+            SqlParameter x = new SqlParameter("@KetQua", SqlDbType.Int);
+            x.Direction = ParameterDirection.Output;
+
             SqlParameter[] para = new SqlParameter[]
             {
                        new SqlParameter("@MaDoan", gd.MaDoan),
@@ -45,10 +49,17 @@ namespace ResortManagerDAO.DAO
                        new SqlParameter("@NgayKetThuc", gd.NgayKetThuc),
                        new SqlParameter("@TongTien", gd.TongTien),
                        new SqlParameter("@CMND", gd.CMND),
-                       new SqlParameter("@TrangThai", gd.TrangThai)
+                       new SqlParameter("@TrangThai", gd.TrangThai),
+                       x
              };
             result = provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_ThemGiaoDich", para);
+            Console.WriteLine(result);
             provider.Disconnect();
+
+            if (Convert.ToInt32(x.Value) == -1) {
+                result = ResortManagerDTO.DTO.DbAck.DateError;
+            }
+
             //lable network
             Network:
             return result;

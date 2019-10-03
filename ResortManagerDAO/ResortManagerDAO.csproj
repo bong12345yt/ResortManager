@@ -41,8 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DatChoRecord.cs" />
+    <Compile Include="DAO\BoiThuong.cs" />
+    <Compile Include="DAO\DanhSachNhanPhong.cs" />
+    <Compile Include="DAO\CTGiaoDich.cs" />
+    <Compile Include="DAO\CTPhieuTra.cs" />
     <Compile Include="DAO\GiaoDich.cs" />
     <Compile Include="DAO\LoaiPhong.cs" />
+    <Compile Include="DAO\PhieuTra.cs" />
     <Compile Include="DAO\Phong.cs" />
     <Compile Include="DAO\Provider.cs" />
     <Compile Include="DAO\TaiKhoan.cs" />

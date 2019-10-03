@@ -12,6 +12,10 @@ namespace ResortManager.UI
 {
     public partial class frmTraPhong : UserControl
     {
+        List<ResortManagerDTO.DTO.CTGiaoDich> DS_CTGD = new List<ResortManagerDTO.DTO.CTGiaoDich>();
+        List<ResortManagerDTO.DTO.BoiThuong> lstBoiThuong = new List<ResortManagerDTO.DTO.BoiThuong>();
+        private int intCount = 0;
+        private String MADOAN;
         public frmTraPhong()
         {
             InitializeComponent();
@@ -19,27 +23,63 @@ namespace ResortManager.UI
 
         private void frmTraPhong_Load(object sender, EventArgs e)
         {
-            dgvLst.Columns[3].DefaultCellStyle.Format = "n3";
-            dgvLst.Columns[4].DefaultCellStyle.Format = "n3";
-            dgvLst.Columns[5].DefaultCellStyle.Format = "n3";
-            dgvLst.Rows.Add(new String[8] { "1", "Trần văn A", "10101010", "200000", "0", "200000", "Trả", "Thêm BT" });
-            dgvLst.Rows.Add(new String[8] { "1", "Trần văn A", "22222222222", "200000", "0", "200000", "Trả", "Thêm BT" });
 
         }
 
         private void dgvLst_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmBoiThuong bt;
             if (e.ColumnIndex == 7)
             {
-                String str = "txt";
-                bt = new frmBoiThuong(str);
+                frmBoiThuong bt;
+                bt = new frmBoiThuong(this.DS_CTGD[e.RowIndex].MACHITIET);
                 bt.ShowDialog();
                 //MessageBox.Show(bt.Price.ToString());
-                int priceIndemnify = int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString());
-                this.dgvLst.Rows[e.RowIndex].Cells[4].Value = (priceIndemnify + bt.Price).ToString();
+                this.dgvLst.Rows[e.RowIndex].Cells[4].Value = "0";
+                this.dgvLst.Rows[e.RowIndex].Cells[5].Value = "0";
+                int tienPhong = int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString());
+                this.dgvLst.Rows[e.RowIndex].Cells[4].Value = (tienPhong + bt.PhiBoiThuong).ToString();
                 this.dgvLst.Rows[e.RowIndex].Cells[5].Value = (int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[4].Value.ToString()) + int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[3].Value.ToString())).ToString();
             }
+            if (e.ColumnIndex == 6)
+            {
+                ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+                int maCTGD = this.DS_CTGD[e.RowIndex].MACHITIET;
+                int tongTien = int.Parse(this.dgvLst.Rows[e.RowIndex].Cells[5].Value.ToString());
+                ack = ResortManagerBUS.BUS.PhieuTra.CapNhatPhieuTraTheoMaCTGD(maCTGD, tongTien);
+                if (ack != ResortManagerDTO.DTO.DbAck.Ok)
+                {
+                    MessageBox.Show("Trả phòng lỗi");
+                    return;
+                }
+                this.intCount++;
+                if (this.intCount == dgvLst.Rows.Count)
+                {
+                    ResortManagerBUS.BUS.Phong.CapNhatTinhTrangPhongDangRanh(out ack, txtIdRoom.Text.Trim());
+                    if (ack != ResortManagerDTO.DTO.DbAck.Ok)
+                    {
+                        MessageBox.Show("Cập nhật tình trạng phòng \"rảnh\" lỗi");
+                    }
+                    else
+                    {
+                        dgvLst.Rows.Clear();   
+                    }
+                }
+            }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtIdRoom.Text.Trim() != "")
+            {
+                dgvLst.Rows.Clear();
+                ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+                this.DS_CTGD = ResortManagerBUS.BUS.CTGiaoDich.SelectByIdRoom(out ack, txtIdRoom.Text.ToUpper());
+                foreach (ResortManagerDTO.DTO.CTGiaoDich item in this.DS_CTGD)
+                {
+                    dgvLst.Rows.Add(new String[8] {item.HOTEN, item.MADOAN.Trim(), item.CMND.Trim(), item.GIA.ToString(), "0", item.GIA.ToString(), "Trả phòng", "Thêm BT" });
+                }
+            }
+        }
+        
     }
 }

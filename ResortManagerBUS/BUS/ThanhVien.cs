@@ -17,5 +17,9 @@ namespace ResortManagerBUS.BUS
         {
             return ResortManagerDAO.DAO.ThanhVien.XoaThanhVienTheoMaDoan(MaDoan);
         }
+        public static List<ResortManagerDTO.DTO.ThanhVien> LayDanhSachThanhVienTheoMaDoan(out ResortManagerDTO.DTO.DbAck ack, String MaDoan)
+        {
+            return ResortManagerDAO.DAO.ThanhVien.LayDanhSachThanhVienTheoMaDoan(out ack, MaDoan);
+        }
     }
 }

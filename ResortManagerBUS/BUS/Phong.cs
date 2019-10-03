@@ -18,9 +18,14 @@ namespace ResortManagerBUS.BUS
             return ResortManagerDAO.DAO.Phong.SelectListRoomByValidate(out ack, lever, type, layer);
         }
 
-        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong)
+        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong, string MaDoan)
         {
-            ResortManagerDAO.DAO.Phong.UpdateStatus(out ack, maphong);
+            ResortManagerDAO.DAO.Phong.UpdateStatus(out ack, maphong, MaDoan);
+        }
+
+        public static void CapNhatTinhTrangPhongDangRanh(out ResortManagerDTO.DTO.DbAck ack, String maphong)
+        {
+            ResortManagerDAO.DAO.Phong.CapNhatTinhTrangPhongDangRanh(out ack, maphong);
         }
     }
 }

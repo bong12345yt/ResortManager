@@ -52,5 +52,37 @@ namespace ResortManagerDAO.DAO
             return result;
         }
 
+        public static List<ResortManagerDTO.DTO.ThanhVien> LayDanhSachThanhVienTheoMaDoan(out ResortManagerDTO.DTO.DbAck ack, String MaDoan)
+        {
+            Provider provider = new Provider();
+            ack = provider.Connect();
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                return null;
+            }
+            DataTable dt = new DataTable();
+            SqlParameter[] para = new SqlParameter[]
+                {
+                       new SqlParameter("@maDoan", MaDoan)
+
+                 };
+            dt = provider.Select(CommandType.StoredProcedure, "usp_LayDSTVtheoMaDoan", out ack, para);
+            List<ResortManagerDTO.DTO.ThanhVien> lstItem = new List<ResortManagerDTO.DTO.ThanhVien>();
+            if (dt == null)
+            {
+                return null;
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                ResortManagerDTO.DTO.ThanhVien item = new ResortManagerDTO.DTO.ThanhVien();
+                item.CMND = row["CMND"].ToString();
+                item.HoTen = row["HOTEN"].ToString();
+                item.MaDoan = row["MADOAN"].ToString();
+                lstItem.Add(item);
+            }
+            provider.Disconnect();
+            return lstItem;
+        }
+
     }
 }

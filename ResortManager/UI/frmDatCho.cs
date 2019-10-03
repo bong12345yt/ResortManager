@@ -12,6 +12,9 @@ namespace ResortManager.UI
 {
     public partial class frmDatCho : UserControl
     {
+        private String MaDoan = "D001";
+        private List<ResortManagerDTO.DTO.ThanhVien> lstUser = new List<ResortManagerDTO.DTO.ThanhVien>();
+        private List<String> lstRoom = new List<String>();
         public frmDatCho()
         {
             InitializeComponent();
@@ -45,6 +48,10 @@ namespace ResortManager.UI
             {
                 cmbLayer.Items.Add(itemLayerRoom);
             }
+
+            //set lstUser
+            this.lstUser = ResortManagerBUS.BUS.ThanhVien.LayDanhSachThanhVienTheoMaDoan(out ack, this.MaDoan).ToList<ResortManagerDTO.DTO.ThanhVien>();
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -80,7 +87,8 @@ namespace ResortManager.UI
             ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
             for (int i =0; i < dgvLst.RowCount; i++)
             {
-                ResortManagerBUS.BUS.Phong.UpdateStatus(out ack, dgvLst[1, i].Value.ToString());
+                ResortManagerBUS.BUS.Phong.UpdateStatus(out ack, dgvLst[1, i].Value.ToString(), this.MaDoan);
+                this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
             }
             
             if (ack == ResortManagerDTO.DTO.DbAck.Ok)
@@ -152,6 +160,12 @@ namespace ResortManager.UI
                 String price = ResortManagerBUS.BUS.LoaiPhong.GetPriceByValidate(out ack, cmbLever.SelectedItem.ToString(), cmbCatRoom.SelectedItem.ToString());
                 txtPrice.Text = price;
             }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            frmCTDatCho ctdc = new frmCTDatCho(this.lstUser, this.lstRoom, this.MaDoan);
+            ctdc.ShowDialog();
         }
     }
 }
