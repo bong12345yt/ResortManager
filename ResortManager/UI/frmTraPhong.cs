@@ -14,6 +14,7 @@ namespace ResortManager.UI
     {
         List<ResortManagerDTO.DTO.CTGiaoDich> DS_CTGD = new List<ResortManagerDTO.DTO.CTGiaoDich>();
         List<ResortManagerDTO.DTO.BoiThuong> lstBoiThuong = new List<ResortManagerDTO.DTO.BoiThuong>();
+        private int intCount = 0;
         private String MADOAN;
         public frmTraPhong()
         {
@@ -49,6 +50,19 @@ namespace ResortManager.UI
                 {
                     MessageBox.Show("Trả phòng lỗi");
                     return;
+                }
+                this.intCount++;
+                if (this.intCount == dgvLst.Rows.Count)
+                {
+                    ResortManagerBUS.BUS.Phong.CapNhatTinhTrangPhongDangRanh(out ack, txtIdRoom.Text.Trim());
+                    if (ack != ResortManagerDTO.DTO.DbAck.Ok)
+                    {
+                        MessageBox.Show("Cập nhật tình trạng phòng \"rảnh\" lỗi");
+                    }
+                    else
+                    {
+                        dgvLst.Rows.Clear();   
+                    }
                 }
             }
         }

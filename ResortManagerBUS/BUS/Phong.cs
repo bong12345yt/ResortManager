@@ -22,5 +22,10 @@ namespace ResortManagerBUS.BUS
         {
             ResortManagerDAO.DAO.Phong.UpdateStatus(out ack, maphong, MaDoan);
         }
+
+        public static void CapNhatTinhTrangPhongDangRanh(out ResortManagerDTO.DTO.DbAck ack, String maphong)
+        {
+            ResortManagerDAO.DAO.Phong.CapNhatTinhTrangPhongDangRanh(out ack, maphong);
+        }
     }
 }
