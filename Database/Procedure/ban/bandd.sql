@@ -76,6 +76,7 @@ as
 	if(@@ERROR <> 0)
 	begin
 		Select N'Thêm giao dịch lỗi'
+		set @KetQua = -2
 		rollback tran
 		return
 	end
@@ -84,6 +85,7 @@ as
 	if(@@ERROR <> 0)
 	begin
 		Select N'Thêm tài khoản lỗi'
+		set @KetQua = -3
 		rollback tran
 		return
 	end
