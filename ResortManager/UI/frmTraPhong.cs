@@ -80,6 +80,11 @@ namespace ResortManager.UI
                 }
             }
         }
-        
+
+        private void btnErr_Click(object sender, EventArgs e)
+        {
+            ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+            ResortManagerBUS.BUS.Phong.ErrCapNhatTinhTrangPhongDangRanh(out ack, txtIdRoom.Text.Trim());
+        }
     }
 }

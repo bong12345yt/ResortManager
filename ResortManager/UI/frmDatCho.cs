@@ -12,11 +12,16 @@ namespace ResortManager.UI
 {
     public partial class frmDatCho : UserControl
     {
-        private String MaDoan = "D001";
+        private String MaDoan = "";
         private List<ResortManagerDTO.DTO.ThanhVien> lstUser = new List<ResortManagerDTO.DTO.ThanhVien>();
         private List<String> lstRoom = new List<String>();
         public frmDatCho()
         {
+            InitializeComponent();
+        }
+        public frmDatCho(String madoan)
+        {
+            this.MaDoan = madoan;
             InitializeComponent();
         }
 
@@ -87,7 +92,7 @@ namespace ResortManager.UI
             ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
             for (int i =0; i < dgvLst.RowCount; i++)
             {
-                ResortManagerBUS.BUS.Phong.UpdateStatus(out ack, dgvLst[1, i].Value.ToString(), this.MaDoan);
+                ack = ResortManagerBUS.BUS.Phong.UpdateStatus(dgvLst[1, i].Value.ToString(), this.MaDoan);
                 this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
             }
             
@@ -95,10 +100,9 @@ namespace ResortManager.UI
             {
                 MessageBox.Show("Đặt phòng thành công");
                 this.ResetControl();
-            }
-            else
+            } else if (ack == ResortManagerDTO.DTO.DbAck.LostUpdate)
             {
-                MessageBox.Show("Đặt phòng thất bại. Xin thử lại");
+                MessageBox.Show("Người đến sau");
                 this.ResetControl();
             }
         }

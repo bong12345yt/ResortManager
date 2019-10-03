@@ -38,6 +38,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAddErr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,11 +152,25 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnAddErr
+            // 
+            this.btnAddErr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddErr.Location = new System.Drawing.Point(431, 149);
+            this.btnAddErr.Name = "btnAddErr";
+            this.btnAddErr.Size = new System.Drawing.Size(120, 30);
+            this.btnAddErr.TabIndex = 30;
+            this.btnAddErr.Text = "Thêm Lỗi";
+            this.btnAddErr.UseVisualStyleBackColor = true;
+            this.btnAddErr.Click += new System.EventHandler(this.btnAddErr_Click);
+            // 
             // frmCTDatCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 427);
+            this.Controls.Add(this.btnAddErr);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvLst);
             this.Controls.Add(this.btnJoinRoom);
@@ -184,5 +199,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnAddErr;
     }
 }

@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnErr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,10 +179,21 @@
             this.label4.Text = "TRẢ PHÒNG";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnErr
+            // 
+            this.btnErr.Location = new System.Drawing.Point(695, 120);
+            this.btnErr.Name = "btnErr";
+            this.btnErr.Size = new System.Drawing.Size(247, 33);
+            this.btnErr.TabIndex = 18;
+            this.btnErr.Text = "Cập nhật tình trạng lỗi";
+            this.btnErr.UseVisualStyleBackColor = true;
+            this.btnErr.Click += new System.EventHandler(this.btnErr_Click);
+            // 
             // frmTraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnErr);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgvLst);
@@ -211,5 +223,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
+        private System.Windows.Forms.Button btnErr;
     }
 }

@@ -109,5 +109,20 @@ namespace ResortManager.UI
             }
             dgvLst.Rows.Add(new String[2] { txtCMND_TV1.Text.Trim(), strName });
         }
+
+        private void btnAddErr_Click(object sender, EventArgs e)
+        {
+            String strName = "";
+            foreach (ResortManagerDTO.DTO.ThanhVien item in this.lstUser)
+            {
+                if (item.CMND.Trim() == txtCMND_TV1.Text.Trim())
+                {
+                    strName = item.HoTen.Trim();
+                    this.lstUser.Remove(item);
+                    break;
+                }
+            }
+            dgvLst.Rows.Add(new String[2] { txtCMND_TV1.Text.Trim(), strName });
+        }
     }
 }

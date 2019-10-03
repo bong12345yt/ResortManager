@@ -69,21 +69,31 @@ namespace ResortManagerDAO.DAO
             return lstRoom;
         }
 
-        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong, string MaDoan)
+        public static ResortManagerDTO.DTO.DbAck UpdateStatus(String maphong, string MaDoan)
         {
             Provider provider = new Provider();
+            ResortManagerDTO.DTO.DbAck ack = provider.Connect();
             ack = provider.Connect();
             if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
             {
-                return;
+                goto Network;
             }
             DataTable dt = new DataTable();
+            SqlParameter KetQua = new SqlParameter("@KetQua", SqlDbType.Int);
+            KetQua.Direction = ParameterDirection.Output;
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@maphong", maphong),
-                new SqlParameter("@maDoan", MaDoan)
+                new SqlParameter("@maDoan", MaDoan),
+                KetQua
             };
-            provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_CapNhatTinhTrangPhong", para);
+            ack = provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_CapNhatTinhTrangPhong", para);
+            if (Convert.ToInt32(KetQua.Value) == -1)
+            {
+                ack = ResortManagerDTO.DTO.DbAck.LostUpdate;
+            }
+        Network:
+            return ack;
         }
 
         public static void CapNhatTinhTrangPhongDangRanh(out ResortManagerDTO.DTO.DbAck ack, String maphong)
@@ -101,5 +111,22 @@ namespace ResortManagerDAO.DAO
                 };
             provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_CapNhatTinhTrangPhongDangRanh", para);
         }
+
+        public static void ErrCapNhatTinhTrangPhongDangRanh(out ResortManagerDTO.DTO.DbAck ack, String maphong)
+        {
+            Provider provider = new Provider();
+            ack = provider.Connect();
+            if (ack == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                return;
+            }
+            DataTable dt = new DataTable();
+            SqlParameter[] para = new SqlParameter[]
+                {
+                       new SqlParameter("@maphong", maphong)
+                };
+            provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_ErrCapNhatTinhTrangPhongDangRanh", para);
+        }
+
     }
 }
