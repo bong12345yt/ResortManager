@@ -67,15 +67,26 @@ namespace ResortManager
             btn_Order.Enabled = false;
             btn_Register.Enabled = false;
             btn_ViewList.Enabled = false;
+            btn_LogOut.Enabled = false;
+            btn_login.Enabled = true;
         }
 
         private void AfterLogin()
         {
-            btn_CheckIn.Enabled = true;
-            btn_CheckOut.Enabled = true;
-            btn_Order.Enabled = true;
-            btn_Register.Enabled = true;
-            btn_ViewList.Enabled = true;
+            if(frmLogin.ActiveAcount == "ADMIN")
+            {
+                btn_Register.Enabled = true;
+                btn_CheckIn.Enabled = true;
+                btn_CheckOut.Enabled = true;
+            }
+            else
+            {
+                btn_Order.Enabled = true;
+                btn_ViewList.Enabled = true;
+            }
+            
+            btn_login.Enabled = false;
+            btn_LogOut.Enabled = true;
         }
 
         private void btn_ViewList_Click(object sender, EventArgs e)
@@ -124,5 +135,20 @@ namespace ResortManager
         {
             //TestTab("Đăng kí", new frmRegister(1));
         }
+
+        private void btn_LogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult dls = MessageBox.Show("Bạn có muốn đăng xuất!", "Đăng Xuất", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if(DialogResult.OK == dls)
+            {
+                BeforeLogin();
+               foreach(TabPage tab in tbc_Main.TabPages)
+               {
+                    tbc_Main.TabPages.Remove(tab);
+               }
+            }            
+        }
     }
+
+
 }
