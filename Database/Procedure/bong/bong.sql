@@ -29,20 +29,53 @@ create proc DeleteDatCho
 	@MACHITIET int,
 	@MADOAN nchar(30)
 as	
+
+    declare @MaPhong nchar(50)
+	select @MaPhong = ct.MAPHONG from CHITIETGIAODICH ct
+	where @MACHITIET = ct.MACHITIET
+	
     begin tran
 	delete dbo.CHITIETGIAODICH
 	where MACHITIET= @MACHITIET
 	if(@@ERROR <> 0)
 	begin
-		Select N'Thêm thành viên lỗi'
+		Select N'lỗi'
 		rollback tran
 		return
 	end
 	
 	declare @count int
+	declare @countPhong int
+
 	select @count = count(ct.MADOAN) from CHITIETGIAODICH ct
 	where @MADOAN = ct.MADOAN
-	print @count
+	
+	select @countPhong = count(ct.MAPHONG) from CHITIETGIAODICH ct
+	where ct.MAPHONG = @MaPhong and ct.MADOAN = @MADOAN
+
+	if(@countPhong <=0)
+	begin
+		update PHONG
+		set TINHTRANG = 'ranh'
+		where @MaPhong = MAPHONG
+		if(@@ERROR <> 0)
+		begin
+			Select N'lỗi'
+			rollback tran
+			return
+		end
+	end
+
+	update GIAODICH
+	set SONGUOI = @count
+	where @MADOAN = MADOAN
+	if(@@ERROR <> 0)
+	begin
+		Select N'lỗi'
+		rollback tran
+		return
+	end
+
 	if @count <= 0
 	begin
 		delete dbo.GIAODICH

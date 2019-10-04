@@ -98,9 +98,10 @@ namespace ResortManager
             btn_Order.Enabled = false;
             btn_Register.Enabled = false;
             btn_ViewList.Enabled = false;
-            //btn_LogOut.Enabled = false;
+            btn_LogOut.Enabled = false;
             btn_login.Enabled = true;
             btnMuonPhong.Enabled = false;
+            btnMuon.Enabled = false;
         }
 
         private void AfterLogin()
@@ -111,6 +112,7 @@ namespace ResortManager
                 btn_CheckIn.Enabled = true;
                 btn_CheckOut.Enabled = true;
                 btnMuonPhong.Enabled = true;
+                btnMuon.Enabled = true;
             }
             else
             {
@@ -118,7 +120,7 @@ namespace ResortManager
                 btn_ViewList.Enabled = true;
             }
             
-            //btn_login.Enabled = false;
+            btn_login.Enabled = false;
             btn_LogOut.Enabled = true;
         }
 
