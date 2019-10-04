@@ -18,14 +18,28 @@ namespace ResortManagerBUS.BUS
             return ResortManagerDAO.DAO.Phong.SelectListRoomByValidate(out ack, lever, type, layer);
         }
 
-        public static void UpdateStatus(out ResortManagerDTO.DTO.DbAck ack, String maphong, string MaDoan)
+        public static List<ResortManagerDTO.DTO.Phong> ErrLayDanhSachPhongTheoDieuKien(out ResortManagerDTO.DTO.DbAck ack, String lever, String type, int layer)
         {
-            ResortManagerDAO.DAO.Phong.UpdateStatus(out ack, maphong, MaDoan);
+            return ResortManagerDAO.DAO.Phong.ErrLayDanhSachPhongTheoDieuKien(out ack, lever, type, layer);
+        }
+
+        public static ResortManagerDTO.DTO.DbAck UpdateStatus(String maphong, string MaDoan)
+        {
+            return ResortManagerDAO.DAO.Phong.UpdateStatus(maphong, MaDoan);
+        }
+        public static ResortManagerDTO.DTO.DbAck Err10SCapNhatTinhTrangPhong(String maphong, string MaDoan)
+        {
+            return ResortManagerDAO.DAO.Phong.Err10SCapNhatTinhTrangPhong(maphong, MaDoan);
         }
 
         public static void CapNhatTinhTrangPhongDangRanh(out ResortManagerDTO.DTO.DbAck ack, String maphong)
         {
             ResortManagerDAO.DAO.Phong.CapNhatTinhTrangPhongDangRanh(out ack, maphong);
+        }
+
+        public static void ErrCapNhatTinhTrangPhongDangRanh(out ResortManagerDTO.DTO.DbAck ack, String maphong)
+        {
+            ResortManagerDAO.DAO.Phong.ErrCapNhatTinhTrangPhongDangRanh(out ack, maphong);
         }
     }
 }

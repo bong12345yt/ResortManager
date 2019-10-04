@@ -123,11 +123,17 @@ namespace ResortManager
         private void btn_Register_Click(object sender, EventArgs e)
         {
             TestTab("Đăng kí", new frmRegister());
+
         }
 
         private void btn_Order_Click(object sender, EventArgs e)
         {
-            TestTab("Đặt chỗ", new frmDatCho());
+            TestTab("Đặt chỗ", new frmDatCho(frmLogin.ActiveAcount));
+        }
+
+        private void btnMuonPhong_Click(object sender, EventArgs e)
+        {
+            //TestTab("Đăng kí", new frmRegister(1));
         }
 
         private void btn_LogOut_Click(object sender, EventArgs e)

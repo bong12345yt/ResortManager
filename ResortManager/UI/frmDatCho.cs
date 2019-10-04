@@ -12,11 +12,16 @@ namespace ResortManager.UI
 {
     public partial class frmDatCho : UserControl
     {
-        private String MaDoan = "D001";
+        private String MaDoan = "";
         private List<ResortManagerDTO.DTO.ThanhVien> lstUser = new List<ResortManagerDTO.DTO.ThanhVien>();
         private List<String> lstRoom = new List<String>();
         public frmDatCho()
         {
+            InitializeComponent();
+        }
+        public frmDatCho(String madoan)
+        {
+            this.MaDoan = madoan;
             InitializeComponent();
         }
 
@@ -68,13 +73,18 @@ namespace ResortManager.UI
             {
                 if (lstRoom.Count < int.Parse(txtNum.Text))
                 {
-                    MessageBox.Show("Chỉ còn tróng " + lstRoom.Count.ToString() + " thỏa điều kiện");
+                    MessageBox.Show("Chỉ còn trống " + lstRoom.Count.ToString() + " thỏa điều kiện");
                 }
-                txtPrice.Text = lstRoom[0].GIA.ToString();
-                foreach (ResortManagerDTO.DTO.Phong item in lstRoom)
-                {
+                //else
+                //{
+                    txtPrice.Text = lstRoom[0].GIA.ToString();
+                    foreach (ResortManagerDTO.DTO.Phong item in lstRoom)
+                    {
+                    if (dgvLst.Rows.Count >= int.Parse(txtNum.Text.Trim()))
+                        break;
                     dgvLst.Rows.Add(new String[4] { index.ToString(), item.MAPHONG, item.TANG.ToString(), item.GIA.ToString() });
-                }
+                    }
+ //               }
             }
             else
             {
@@ -87,20 +97,20 @@ namespace ResortManager.UI
             ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
             for (int i =0; i < dgvLst.RowCount; i++)
             {
-                ResortManagerBUS.BUS.Phong.UpdateStatus(out ack, dgvLst[1, i].Value.ToString(), this.MaDoan);
-                this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
+                ack = ResortManagerBUS.BUS.Phong.UpdateStatus(dgvLst[1, i].Value.ToString(), this.MaDoan);
+                if (ack == ResortManagerDTO.DTO.DbAck.Ok)
+                {
+                    MessageBox.Show("Đặt phòng thành công");
+                    this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
+                    this.ResetControl();
+                }
+                else if (ack == ResortManagerDTO.DTO.DbAck.LostUpdate)
+                {
+                    MessageBox.Show("Người đến sau");
+                    this.ResetControl();
+                }
             }
             
-            if (ack == ResortManagerDTO.DTO.DbAck.Ok)
-            {
-                MessageBox.Show("Đặt phòng thành công");
-                this.ResetControl();
-            }
-            else
-            {
-                MessageBox.Show("Đặt phòng thất bại. Xin thử lại");
-                this.ResetControl();
-            }
         }
 
         private void ResetControl()
@@ -166,6 +176,60 @@ namespace ResortManager.UI
         {
             frmCTDatCho ctdc = new frmCTDatCho(this.lstUser, this.lstRoom, this.MaDoan);
             ctdc.ShowDialog();
+        }
+
+        private void btnDat10_Click(object sender, EventArgs e)
+        {
+            ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+            for (int i = 0; i < dgvLst.RowCount; i++)
+            {
+                ack = ResortManagerBUS.BUS.Phong.Err10SCapNhatTinhTrangPhong(dgvLst[1, i].Value.ToString(), this.MaDoan);
+                this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
+            }
+
+            if (ack == ResortManagerDTO.DTO.DbAck.Ok)
+            {
+                MessageBox.Show("Đặt phòng thành công");
+                this.ResetControl();
+            }
+            else if (ack == ResortManagerDTO.DTO.DbAck.LostUpdate)
+            {
+                MessageBox.Show("Người đến sau");
+                this.ResetControl();
+            }
+        }
+
+        private void btnSearchErr_Click(object sender, EventArgs e)
+        {
+            if (!this.CheckValidate())
+                return;
+            dgvLst.Rows.Clear();
+            ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+            List<ResortManagerDTO.DTO.Phong> lstRoom = new List<ResortManagerDTO.DTO.Phong>();
+            lstRoom = ResortManagerBUS.BUS.Phong.ErrLayDanhSachPhongTheoDieuKien(out ack, cmbLever.SelectedItem.ToString(), cmbCatRoom.SelectedItem.ToString(), int.Parse(cmbLayer.SelectedItem.ToString()));
+
+            int index = 1;
+            if (lstRoom.Count > 0)
+            {
+                if (lstRoom.Count < int.Parse(txtNum.Text))
+                {
+                    MessageBox.Show("Chỉ còn trống " + lstRoom.Count.ToString() + " thỏa điều kiện");
+                }
+                //else
+                //{
+                txtPrice.Text = lstRoom[0].GIA.ToString();
+                foreach (ResortManagerDTO.DTO.Phong item in lstRoom)
+                {
+                    if (dgvLst.Rows.Count >= int.Parse(txtNum.Text.Trim()))
+                        break;
+                    dgvLst.Rows.Add(new String[4] { index.ToString(), item.MAPHONG, item.TANG.ToString(), item.GIA.ToString() });
+                }
+                //               }
+            }
+            else
+            {
+                MessageBox.Show("Không có phòng thảo điều kiện");
+            }
         }
     }
 }

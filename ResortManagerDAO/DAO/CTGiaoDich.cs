@@ -67,6 +67,28 @@ namespace ResortManagerDAO.DAO
             return result;
         }
 
+        public static ResortManagerDTO.DTO.DbAck ErrThemChiTietGiaoDich(ResortManagerDTO.DTO.CTGiaoDich ctgd)
+        {
+
+            Provider provider = new Provider();
+            ResortManagerDTO.DTO.DbAck result = provider.Connect();
+            if (result == ResortManagerDTO.DTO.DbAck.NetworkError)
+            {
+                goto Network; // net nhu la networkerror thi nhay den lable network
+            }
+            SqlParameter[] para = new SqlParameter[]
+            {
+                       new SqlParameter("@cmnd", ctgd.CMND),
+                       new SqlParameter("@maDoan", ctgd.MADOAN),
+                       new SqlParameter("@maPhong", ctgd.MAPHONG)
+             };
+            result = provider.ExcuteNonQuery(CommandType.StoredProcedure, "usp_ErrThemChiTietGiaoDich", para);
+            provider.Disconnect();
+        //lable network
+        Network:
+            return result;
+        }
+
         public static String LayMaCTDG(out ResortManagerDTO.DTO.DbAck ack, String cmnd)
         {
             Provider provider = new Provider();

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCMND_TV1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -38,6 +38,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAddErr = new System.Windows.Forms.Button();
+            this.btnJoinErr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +88,7 @@
             this.btnJoinRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnJoinRoom.Location = new System.Drawing.Point(217, 341);
+            this.btnJoinRoom.Location = new System.Drawing.Point(106, 341);
             this.btnJoinRoom.Name = "btnJoinRoom";
             this.btnJoinRoom.Size = new System.Drawing.Size(110, 42);
             this.btnJoinRoom.TabIndex = 22;
@@ -105,16 +107,16 @@
             this.dgvLst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
             this.Column5});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLst.Location = new System.Drawing.Point(5, 194);
             this.dgvLst.Name = "dgvLst";
             this.dgvLst.ReadOnly = true;
@@ -151,11 +153,39 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnAddErr
+            // 
+            this.btnAddErr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddErr.Location = new System.Drawing.Point(431, 149);
+            this.btnAddErr.Name = "btnAddErr";
+            this.btnAddErr.Size = new System.Drawing.Size(120, 30);
+            this.btnAddErr.TabIndex = 30;
+            this.btnAddErr.Text = "Thêm Lỗi";
+            this.btnAddErr.UseVisualStyleBackColor = true;
+            this.btnAddErr.Click += new System.EventHandler(this.btnAddErr_Click);
+            // 
+            // btnJoinErr
+            // 
+            this.btnJoinErr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnJoinErr.Location = new System.Drawing.Point(358, 341);
+            this.btnJoinErr.Name = "btnJoinErr";
+            this.btnJoinErr.Size = new System.Drawing.Size(133, 42);
+            this.btnJoinErr.TabIndex = 31;
+            this.btnJoinErr.Text = "Vào phòng Lỗi";
+            this.btnJoinErr.UseVisualStyleBackColor = true;
+            this.btnJoinErr.Click += new System.EventHandler(this.btnJoinErr_Click);
+            // 
             // frmCTDatCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 427);
+            this.Controls.Add(this.btnJoinErr);
+            this.Controls.Add(this.btnAddErr);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvLst);
             this.Controls.Add(this.btnJoinRoom);
@@ -184,5 +214,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnAddErr;
+        private System.Windows.Forms.Button btnJoinErr;
     }
 }
