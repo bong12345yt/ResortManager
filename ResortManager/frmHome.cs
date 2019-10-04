@@ -117,7 +117,7 @@ namespace ResortManager
 
         private void btn_Order_Click(object sender, EventArgs e)
         {
-            TestTab("Đặt chỗ", new frmDatCho(frm_login.ActiveAcount));
+            TestTab("Đặt chỗ", new frmDatCho(frmLogin.ActiveAcount));
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbLever = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,6 +48,8 @@
             this.btnRegis = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.btnDat10 = new System.Windows.Forms.Button();
+            this.btnSearchErr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,16 +164,16 @@
             this.Column2,
             this.Column3,
             this.Column5});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLst.Location = new System.Drawing.Point(117, 300);
             this.dgvLst.Name = "dgvLst";
             this.dgvLst.ReadOnly = true;
@@ -242,10 +244,34 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
+            // btnDat10
+            // 
+            this.btnDat10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDat10.Location = new System.Drawing.Point(867, 426);
+            this.btnDat10.Name = "btnDat10";
+            this.btnDat10.Size = new System.Drawing.Size(102, 33);
+            this.btnDat10.TabIndex = 31;
+            this.btnDat10.Text = "Đặt 10S";
+            this.btnDat10.UseVisualStyleBackColor = true;
+            this.btnDat10.Click += new System.EventHandler(this.btnDat10_Click);
+            // 
+            // btnSearchErr
+            // 
+            this.btnSearchErr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearchErr.Location = new System.Drawing.Point(881, 140);
+            this.btnSearchErr.Name = "btnSearchErr";
+            this.btnSearchErr.Size = new System.Drawing.Size(141, 33);
+            this.btnSearchErr.TabIndex = 32;
+            this.btnSearchErr.Text = "Tra cứu Lỗi";
+            this.btnSearchErr.UseVisualStyleBackColor = true;
+            this.btnSearchErr.Click += new System.EventHandler(this.btnSearchErr_Click);
+            // 
             // frmDatCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSearchErr);
+            this.Controls.Add(this.btnDat10);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnRegis);
@@ -291,5 +317,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.Button btnDat10;
+        private System.Windows.Forms.Button btnSearchErr;
     }
 }
