@@ -9,16 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ResortManager.UI;
 
+using System.Timers;
+
 namespace ResortManager
 {
     public partial class frmHome : Form
     {
+        private static System.Timers.Timer aTimer = null;
         static public String ActiveAccount = "";
         frmLogin frm_login = new frmLogin();
         public frmHome()
         {
             InitializeComponent();
             BeforeLogin();
+            start();
         }
 
         #region"Kiểm tra tab mở"
@@ -60,6 +64,33 @@ namespace ResortManager
         }
         #endregion
 
+        public static void start()
+        {
+            System.Console.WriteLine("init auto check!");
+            // Create a timer with a two second interval.
+            if (aTimer == null)
+            {
+                aTimer = new System.Timers.Timer();
+                aTimer.Interval = 5000;
+                // Hook up the Elapsed event for the timer. 
+                aTimer.Elapsed += OnTimedEvent;
+                aTimer.AutoReset = true;
+            }
+
+            aTimer.Enabled = true;
+        }
+
+        public static void stop()
+        {
+            aTimer.Enabled = false;
+        }
+
+        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            ResortManagerBUS.BUS.AutoCheckDate.CheckExchage();
+            Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
+        }
+
         private void BeforeLogin()
         {
             btn_CheckIn.Enabled = false;
@@ -69,6 +100,7 @@ namespace ResortManager
             btn_ViewList.Enabled = false;
             btn_LogOut.Enabled = false;
             btn_login.Enabled = true;
+            btnMuonPhong.Enabled = false;
         }
 
         private void AfterLogin()
@@ -78,6 +110,7 @@ namespace ResortManager
                 btn_Register.Enabled = true;
                 btn_CheckIn.Enabled = true;
                 btn_CheckOut.Enabled = true;
+                btnMuonPhong.Enabled = true;
             }
             else
             {

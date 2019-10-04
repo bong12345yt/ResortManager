@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\AutoCheckDate.cs" />
     <Compile Include="DAO\DatChoRecord.cs" />
     <Compile Include="DAO\BoiThuong.cs" />
     <Compile Include="DAO\DanhSachNhanPhong.cs" />
