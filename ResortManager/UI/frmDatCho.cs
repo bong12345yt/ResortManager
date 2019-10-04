@@ -238,5 +238,10 @@ namespace ResortManager.UI
                 MessageBox.Show("Không có phòng thảo điều kiện");
             }
         }
+
+        private void btbMuonPhong_Click(object sender, EventArgs e)
+        {
+            Program.frm_Home.TestTab("Nhận phòng", new FrmNhanPhong());
+        }
     }
 }

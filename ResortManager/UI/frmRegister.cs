@@ -12,8 +12,14 @@ namespace ResortManager.UI
 {
     public partial class frmRegister : UserControl
     {
+        private int ckMuonPhong = 0;
         public frmRegister()
         {
+            InitializeComponent();
+        }
+        public frmRegister(int muonP)
+        {
+            this.ckMuonPhong = muonP;
             InitializeComponent();
         }
 
@@ -116,6 +122,12 @@ namespace ResortManager.UI
             //        MessageBox.Show(ResortManagerDTO.DTO.DbAck.NetworkError.ToString(), "Error!", MessageBoxButtons.OK);
             //    }
             //}
+
+            if (this.ckMuonPhong != 0)
+            {
+                MessageBox.Show("Đăng nhập lại");
+                this.Parent.Controls.Remove(this);
+            }
 
             return;
 

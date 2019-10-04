@@ -276,7 +276,7 @@
             this.btbMuonPhong.TabIndex = 33;
             this.btbMuonPhong.Text = "Mướn phòng";
             this.btbMuonPhong.UseVisualStyleBackColor = true;
-            this.btbMuonPhong.Visible = false;
+            this.btbMuonPhong.Click += new System.EventHandler(this.btbMuonPhong_Click);
             // 
             // frmDatCho
             // 
