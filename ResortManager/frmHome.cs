@@ -119,5 +119,10 @@ namespace ResortManager
         {
             TestTab("Đặt chỗ", new frmDatCho(frmLogin.ActiveAcount));
         }
+
+        private void btnMuonPhong_Click(object sender, EventArgs e)
+        {
+            //TestTab("Đăng kí", new frmRegister(1));
+        }
     }
 }

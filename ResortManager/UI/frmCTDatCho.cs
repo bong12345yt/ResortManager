@@ -124,5 +124,36 @@ namespace ResortManager.UI
             }
             dgvLst.Rows.Add(new String[2] { txtCMND_TV1.Text.Trim(), strName });
         }
+
+        private void btnJoinErr_Click(object sender, EventArgs e)
+        {
+            ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
+            String strIdRoom = cmbRoom.SelectedItem.ToString().Split('-')[0];
+            ResortManagerDTO.DTO.CTGiaoDich ctgd = new ResortManagerDTO.DTO.CTGiaoDich();
+            for (int i = 0; i < dgvLst.Rows.Count; i++)
+            {
+                ctgd.CMND = dgvLst.Rows[i].Cells[0].Value.ToString().Trim();
+                ctgd.MADOAN = this.MaDoan;
+                ctgd.MAPHONG = strIdRoom;
+                this.Close();
+                ack = ResortManagerBUS.BUS.CTGiaoDich.ErrThemChiTietGiaoDich(ctgd);
+                if (ack != ResortManagerDTO.DTO.DbAck.Ok)
+                {
+                    MessageBox.Show("Thêm ErrThemChiTietGiaoDich thất bại");
+                    return;
+                }
+                String MaCTGD = ResortManagerBUS.BUS.CTGiaoDich.LayMaCTDG(out ack, ctgd.CMND);
+                ack = ResortManagerBUS.BUS.PhieuTra.ThemPhieuTra(MaCTGD);
+                if (ack != ResortManagerDTO.DTO.DbAck.Ok)
+                {
+                    MessageBox.Show("Thêm PHIEUTRA thất bại");
+                    return;
+                }
+            }
+            //txtCMND_TV1.Text = "";
+            //dgvLst.Rows.Clear();
+            //cmbRoom.Items.Remove(cmbRoom.SelectedItem);
+            //cmbRoom.SelectedIndex = -1;
+        }
     }
 }

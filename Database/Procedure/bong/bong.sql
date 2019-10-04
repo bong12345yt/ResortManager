@@ -14,8 +14,11 @@ go
 create proc SelectDatCho
 	@MADOAN nchar(30)
 as
+	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+	begin tran
 	select ct.MACHITIET ,ct.MADOAN, tv.HOTEN, ct.CMND, ct.MAPHONG, gd.NGAYBATDAU, gd.NGAYKETTHUC, lp.GIA, (DATEDIFF(DAY, gd.NGAYBATDAU, gd.NGAYKETTHUC) * lp.GIA) 'THANHTIEN' from dbo.CHITIETGIAODICH ct, dbo.GIAODICH gd, dbo.PHONG p, dbo.LOAIPHONG lp, dbo.THANHVIEN tv
 	where ct.MADOAN = gd.MADOAN and ct.MAPHONG = p.MAPHONG and p.MALOAI = lp.MALOAI and ct.CMND = tv.CMND and ct.MADOAN = tv.MADOAN  and CAST(ct.MADOAN as varchar(30)) = @MADOAN
+	commit tran
 go
 
 --Xóa Đạt chỗ...
