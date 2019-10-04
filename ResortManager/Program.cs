@@ -8,6 +8,7 @@ namespace ResortManager
 {
     static class Program
     {
+        public static frmHome frm_Home = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

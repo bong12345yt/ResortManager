@@ -98,7 +98,7 @@ namespace ResortManager
             btn_Order.Enabled = false;
             btn_Register.Enabled = false;
             btn_ViewList.Enabled = false;
-            btn_LogOut.Enabled = false;
+            //btn_LogOut.Enabled = false;
             btn_login.Enabled = true;
             btnMuonPhong.Enabled = false;
         }
@@ -118,7 +118,7 @@ namespace ResortManager
                 btn_ViewList.Enabled = true;
             }
             
-            btn_login.Enabled = false;
+            //btn_login.Enabled = false;
             btn_LogOut.Enabled = true;
         }
 
@@ -164,10 +164,6 @@ namespace ResortManager
             TestTab("Đặt chỗ", new frmDatCho(frmLogin.ActiveAcount));
         }
 
-        private void btnMuonPhong_Click(object sender, EventArgs e)
-        {
-            //TestTab("Đăng kí", new frmRegister(1));
-        }
 
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
@@ -180,6 +176,11 @@ namespace ResortManager
                     tbc_Main.TabPages.Remove(tab);
                }
             }            
+        }
+
+        private void btnMuon_Click(object sender, EventArgs e)
+        {
+            TestTab("Đăng kí", new frmRegister(1));
         }
     }
 

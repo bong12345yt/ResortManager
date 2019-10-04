@@ -173,7 +173,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnJoinErr.Location = new System.Drawing.Point(358, 341);
             this.btnJoinErr.Name = "btnJoinErr";
-            this.btnJoinErr.Size = new System.Drawing.Size(133, 42);
+            this.btnJoinErr.Size = new System.Drawing.Size(193, 42);
             this.btnJoinErr.TabIndex = 31;
             this.btnJoinErr.Text = "Vào phòng Lỗi";
             this.btnJoinErr.UseVisualStyleBackColor = true;

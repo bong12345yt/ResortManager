@@ -27,7 +27,7 @@ as
 	commit tran
 go
 
-exec usp_ThemThanhVien @CMND='123',@HoTen='Nguyen',@MaDoan='123'
+#exec usp_ThemThanhVien @CMND='123',@HoTen='Nguyen',@MaDoan='123'
 
 If object_id('usp_PhatSinhMaDoan','p')is not null
 	Drop proc usp_PhatSinhMaDoan
@@ -46,9 +46,9 @@ AS
 	End
 GO
 
-Declare @MaDoan nchar(30)
-exec usp_PhatSinhMaDoan @MaDoan out
-print @MaDoan
+#Declare @MaDoan nchar(30)
+#exec usp_PhatSinhMaDoan @MaDoan out
+#print @MaDoan
 
 if OBJECT_ID ('usp_ThemGiaoDich','p') is not null
 	drop proc usp_ThemGiaoDich
@@ -93,8 +93,8 @@ as
 	commit tran
 go
 
-exec usp_ThemGiaoDich @MaDoan='123456',@SoNguoi=0,@SoPhong=0,@NgayBatDau="2019-10-10 10:00:00.000",
-@NgayKetThuc="2019-10-11 11:00:00.000",@TongTien=0,@CMND='123',@TrangThai='xx'
+#exec usp_ThemGiaoDich @MaDoan='123456',@SoNguoi=0,@SoPhong=0,@NgayBatDau="2019-10-10 10:00:00.000",
+#@NgayKetThuc="2019-10-11 11:00:00.000",@TongTien=0,@CMND='123',@TrangThai='xx'
 
 if OBJECT_ID ('usp_XoaThanhVienTheoMaDoan','p') is not null
 	drop proc usp_XoaThanhVienTheoMaDoan

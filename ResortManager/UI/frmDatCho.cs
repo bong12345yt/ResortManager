@@ -13,6 +13,7 @@ namespace ResortManager.UI
     public partial class frmDatCho : UserControl
     {
         private String MaDoan = "";
+        private int ckMuonphong = 0;
         private List<ResortManagerDTO.DTO.ThanhVien> lstUser = new List<ResortManagerDTO.DTO.ThanhVien>();
         private List<String> lstRoom = new List<String>();
         public frmDatCho()
@@ -21,6 +22,12 @@ namespace ResortManager.UI
         }
         public frmDatCho(String madoan)
         {
+            this.MaDoan = madoan;
+            InitializeComponent();
+        }
+        public frmDatCho(String madoan, int muonP)
+        {
+            this.ckMuonphong = muonP;
             this.MaDoan = madoan;
             InitializeComponent();
         }
@@ -230,6 +237,11 @@ namespace ResortManager.UI
             {
                 MessageBox.Show("Không có phòng thảo điều kiện");
             }
+        }
+
+        private void btbMuonPhong_Click(object sender, EventArgs e)
+        {
+            Program.frm_Home.TestTab("Nhận phòng", new FrmNhanPhong());
         }
     }
 }

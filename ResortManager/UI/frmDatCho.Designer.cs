@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbLever = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +50,7 @@
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnDat10 = new System.Windows.Forms.Button();
             this.btnSearchErr = new System.Windows.Forms.Button();
+            this.btbMuonPhong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLst)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,16 +165,16 @@
             this.Column2,
             this.Column3,
             this.Column5});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLst.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLst.Location = new System.Drawing.Point(117, 300);
             this.dgvLst.Name = "dgvLst";
             this.dgvLst.ReadOnly = true;
@@ -266,10 +267,22 @@
             this.btnSearchErr.UseVisualStyleBackColor = true;
             this.btnSearchErr.Click += new System.EventHandler(this.btnSearchErr_Click);
             // 
+            // btbMuonPhong
+            // 
+            this.btbMuonPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btbMuonPhong.Location = new System.Drawing.Point(66, 426);
+            this.btbMuonPhong.Name = "btbMuonPhong";
+            this.btbMuonPhong.Size = new System.Drawing.Size(102, 33);
+            this.btbMuonPhong.TabIndex = 33;
+            this.btbMuonPhong.Text = "Mướn phòng";
+            this.btbMuonPhong.UseVisualStyleBackColor = true;
+            this.btbMuonPhong.Click += new System.EventHandler(this.btbMuonPhong_Click);
+            // 
             // frmDatCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btbMuonPhong);
             this.Controls.Add(this.btnSearchErr);
             this.Controls.Add(this.btnDat10);
             this.Controls.Add(this.btnAddUser);
@@ -319,5 +332,6 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnDat10;
         private System.Windows.Forms.Button btnSearchErr;
+        private System.Windows.Forms.Button btbMuonPhong;
     }
 }
