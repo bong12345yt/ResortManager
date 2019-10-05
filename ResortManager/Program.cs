@@ -17,7 +17,8 @@ namespace ResortManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHome());
+            frm_Home = new frmHome();
+            Application.Run(frm_Home);
         }
     }
 }

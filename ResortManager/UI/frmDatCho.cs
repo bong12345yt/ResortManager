@@ -37,6 +37,10 @@ namespace ResortManager.UI
             ResortManagerDTO.DTO.DbAck ack = new ResortManagerDTO.DTO.DbAck();
             List<String> lstLeverRoon = new List<String>();
             lstLeverRoon = ResortManagerBUS.BUS.LoaiPhong.SelectLeverRoom(out ack);
+            if (this.ckMuonphong != 0)
+            {
+                btbMuonPhong.Visible = true;
+            }
 
             foreach(String itemLeverRoom in lstLeverRoon)
             {

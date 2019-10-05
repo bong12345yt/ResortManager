@@ -13,6 +13,7 @@ namespace ResortManager.UI
     public partial class frmRegister : UserControl
     {
         private int ckMuonPhong = 0;
+        private String MaDoan = "";
         public frmRegister()
         {
             InitializeComponent();
@@ -51,6 +52,7 @@ namespace ResortManager.UI
             //Them giao dich
             ResortManagerDTO.DTO.GiaoDich gd = new ResortManagerDTO.DTO.GiaoDich();
             gd.MaDoan = MaDoan;
+            this.MaDoan = MaDoan;
             gd.SoNguoi = 0;
             gd.SoPhong = 0;
             gd.NgayBatDau = dtp_DateStart.Value;
@@ -147,6 +149,11 @@ namespace ResortManager.UI
                 MessageBox.Show(ResortManagerDTO.DTO.EnumUtils.stringValueOf(ack4), "Error!", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.frm_Home.TestTab("Dat Cho Admin", new frmDatCho(this.MaDoan, 1));
         }
     }
 }
