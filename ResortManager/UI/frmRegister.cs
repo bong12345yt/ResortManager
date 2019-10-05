@@ -80,8 +80,8 @@ namespace ResortManager.UI
             foreach (DataGridViewRow r in dgvLst.Rows)
             {
                 if (r.Cells[0].Value != null) {
-                    tv.CMND = r.Cells[0].Value.ToString();
-                    tv.HoTen = r.Cells[1].Value.ToString();
+                    tv.HoTen = r.Cells[0].Value.ToString();
+                    tv.CMND = r.Cells[1].Value.ToString();
                     tv.MaDoan = MaDoan;
 
                     ResortManagerDTO.DTO.DbAck ack1 = ResortManagerBUS.BUS.ThanhVien.ThemThanhVien(tv);

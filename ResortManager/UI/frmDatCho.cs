@@ -107,17 +107,20 @@ namespace ResortManager.UI
                 ack = ResortManagerBUS.BUS.Phong.UpdateStatus(dgvLst[1, i].Value.ToString(), this.MaDoan);
                 if (ack == ResortManagerDTO.DTO.DbAck.Ok)
                 {
-                    MessageBox.Show("Đặt phòng thành công");
                     this.lstRoom.Add(dgvLst[1, i].Value.ToString().Trim() + "-" + cmbCatRoom.SelectedItem.ToString());
-                    this.ResetControl();
                 }
                 else if (ack == ResortManagerDTO.DTO.DbAck.LostUpdate)
                 {
-                    MessageBox.Show("Người đến sau");
+                    MessageBox.Show("Phòng đã có người đặt");
                     this.ResetControl();
                 }
+
             }
-            
+
+            if (ack == ResortManagerDTO.DTO.DbAck.Ok)
+            {
+                MessageBox.Show("Đặt phòng thành công");
+            }
         }
 
         private void ResetControl()
@@ -241,7 +244,8 @@ namespace ResortManager.UI
 
         private void btbMuonPhong_Click(object sender, EventArgs e)
         {
-            Program.frm_Home.TestTab("Nhận phòng", new FrmNhanPhong());
+            frmNhanPhong2 f = new frmNhanPhong2();
+            f.Show();
         }
     }
 }

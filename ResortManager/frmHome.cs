@@ -100,7 +100,7 @@ namespace ResortManager
             btn_ViewList.Enabled = false;
             btn_LogOut.Enabled = false;
             btn_login.Enabled = true;
-            btnMuonPhong.Enabled = false;
+            //btnMuonPhong.Enabled = false;
             btnMuon.Enabled = false;
         }
 
@@ -111,7 +111,7 @@ namespace ResortManager
                 btn_Register.Enabled = true;
                 btn_CheckIn.Enabled = true;
                 btn_CheckOut.Enabled = true;
-                btnMuonPhong.Enabled = true;
+                //btnMuonPhong.Enabled = true;
                 btnMuon.Enabled = true;
             }
             else
@@ -182,6 +182,7 @@ namespace ResortManager
 
         private void btnMuon_Click(object sender, EventArgs e)
         {
+            this.btn_CheckIn.Enabled = true;
             TestTab("Đăng kí", new frmRegister(1));
         }
     }
